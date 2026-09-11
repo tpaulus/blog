@@ -3,5 +3,19 @@
   "extends": [
     "config:recommended",
     "github>tpaulus/renovate-config:auto-merge-gh-actions"
+  ],
+  "customManagers": [
+    {
+      "customType": "regex",
+      "description": "Keep the Hugo version pin in sync with upstream releases.",
+      "managerFilePatterns": [
+        "/^\\.hugo-version$/"
+      ],
+      "matchStrings": [
+        "^(?<currentValue>\\d+\\.\\d+\\.\\d+)$"
+      ],
+      "datasourceTemplate": "github-releases",
+      "depNameTemplate": "gohugoio/hugo"
+    }
   ]
 }
