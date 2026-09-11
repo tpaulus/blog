@@ -253,3 +253,21 @@
     font-size: 2rem;
     color: var(--secondary-text-color);
 }
+
+.error-image {
+    max-width: 20rem;
+    margin: 3rem auto;
+}
+
+.error-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 0.6rem;
+}
+
+.error-image figcaption {
+    margin-top: 0.75rem;
+    font-size: 1.2rem;
+    color: var(--secondary-text-color);
+}
