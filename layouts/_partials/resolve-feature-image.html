@@ -6,8 +6,9 @@
   route instead of the legacy Ghost /content/images/ path. Returns nil if the
   page has no feature_image or the path doesn't match a bundled resource.
 */}}
-{{ $page := . }}
-{{ $path := $page.Params.feature_image }}
-{{ if $path }}
-{{ return $page.Resources.GetMatch $path }}
-{{ end }}
+{{- $page := . -}}
+{{- $path := $page.Params.feature_image -}}
+{{- if $path -}}
+  {{- return $page.Resources.GetMatch $path -}}
+{{- end -}}
+{{- return -}}
