@@ -1,0 +1,8 @@
+{{/*
+  Minifies the site's single interactive script (the mobile menu toggle).
+  Left unfingerprinted for the same reason as css.html: nothing else in
+  this port depends on a hashed filename, and a stable "/js/main.js" path
+  keeps the asset pipeline simple.
+*/}}
+{{ $js := resources.Get "js/main.js" | minify }}
+{{ return $js }}

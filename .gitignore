@@ -1,0 +1,12 @@
+.DS_Store
+# Hugo and Pagefind output
+/public/
+/resources/_gen/
+/.hugo_build.lock
+# Node dependencies and logs
+/node_modules/
+npm-debug.log*
+# Local deployment settings
+.env
+.env.*
+!.env.example

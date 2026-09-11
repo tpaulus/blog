@@ -1,0 +1,43 @@
+{{/*
+  Builds the site's single compiled stylesheet from ported Alto/Ghost
+  source CSS (see assets/css/vendor and assets/css/alto) plus this port's
+  kg-* content card styling, the search modal's styling (css/search-modal.css),
+  and the generated Chroma syntax-highlight theme.
+
+  The bundle is minified but intentionally left unfingerprinted: keeping a
+  stable "/css/screen.css" URL keeps the asset pipeline simple, and the
+  deploy process (see scripts/deploy-bunny.mjs) purges the CDN cache on
+  every deploy instead of relying on a content-hashed filename.
+*/}}
+{{ $files := slice
+  "css/vendor/vars.css"
+  "css/alto/vars.css"
+  "css/vendor/reset.css"
+  "css/vendor/global.css"
+  "css/vendor/layout.css"
+  "css/vendor/header.css"
+  "css/vendor/content.css"
+  "css/vendor/card.css"
+  "css/vendor/pagination.css"
+  "css/vendor/button.css"
+  "css/vendor/footer.css"
+  "css/alto/fonts.css"
+  "css/alto/header.css"
+  "css/alto/layout.css"
+  "css/alto/term.css"
+  "css/alto/post.css"
+  "css/alto/pagination.css"
+  "css/alto/single.css"
+  "css/alto/related.css"
+  "css/alto/utilities.css"
+  "css/alto/dark.css"
+  "css/kg-cards.css"
+  "css/search-modal.css"
+  "css/chroma.css"
+}}
+{{ $resources := slice }}
+{{ range $files }}
+  {{ $resources = $resources | append (resources.Get .) }}
+{{ end }}
+{{ $css := $resources | resources.Concat "css/screen.css" | minify }}
+{{ return $css }}

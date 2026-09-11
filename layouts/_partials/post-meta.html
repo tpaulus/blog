@@ -1,0 +1,18 @@
+{{/*
+  Shared post metadata row: publish date, reading time, and primary tag
+  (the first tag in front-matter order). Used on post cards, related-post
+  cards, and the single post header.
+*/}}
+{{ $page := . }}
+<div class="post-meta">
+    <span class="post-meta-item post-meta-date">
+        <time datetime="{{ $page.Date.Format "2006-01-02" }}">{{ $page.Date.Format "02 Jan 2006" }}</time>
+    </span>
+    {{ if gt $page.ReadingTime 0 }}
+    <span class="post-meta-item post-meta-length">{{ if eq $page.ReadingTime 1 }}1 min read{{ else }}{{ $page.ReadingTime }} min read{{ end }}</span>
+    {{ end }}
+    {{ with $page.GetTerms "tag" }}
+    {{ $primary := index . 0 }}
+    <span class="post-meta-item post-meta-tags"><a class="post-tag post-tag-{{ $primary.Data.Term | urlize }}" href="{{ $primary.RelPermalink }}" title="{{ $primary.Title }}">{{ $primary.Title }}</a></span>
+    {{ end }}
+</div>

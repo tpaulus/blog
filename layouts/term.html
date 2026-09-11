@@ -1,0 +1,28 @@
+{{ define "main" }}
+<div class="content-area">
+<main class="site-main" id="gh-main">
+
+    <section class="term gh-outer">
+        <div class="term-wrapper">
+            <h1 class="term-name">{{ .Data.Singular | humanize | title }}: {{ .Title }}</h1>
+            {{ with .Params.description }}
+            <div class="term-description">{{ . }}</div>
+            {{ end }}
+        </div>
+    </section>
+
+    {{ $paginator := .Paginate (where .Pages "Type" "posts") }}
+
+    <div class="post-feed">
+        {{ range $paginator.Pages }}
+            {{ partial "post-card.html" . }}
+        {{ else }}
+            <p class="post-feed-empty">No posts are tagged &ldquo;{{ .Title }}&rdquo; yet.</p>
+        {{ end }}
+    </div>
+
+    {{ partial "pagination.html" $paginator }}
+
+</main>
+</div>
+{{ end }}

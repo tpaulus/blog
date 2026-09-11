@@ -1,0 +1,37 @@
+{{- $title := .Title -}}
+{{- if .IsHome -}}
+  {{- $title = .Site.Title -}}
+{{- else if eq .Kind "term" -}}
+  {{- $title = printf "%s: %s | %s" (.Data.Singular | humanize | title) .Title .Site.Title -}}
+{{- else -}}
+  {{- $title = printf "%s | %s" .Title .Site.Title -}}
+{{- end -}}
+<title>{{ $title }}</title>
+
+{{- with (.Params.description | default .Site.Params.description) }}
+<meta name="description" content="{{ . }}">
+{{- end }}
+<link rel="canonical" href="{{ .Permalink }}">
+
+{{- with .Site.Params.icon }}
+<link rel="icon" href="{{ . }}">
+{{- end }}
+
+{{- with .OutputFormats.Get "RSS" }}
+<link rel="alternate" type="{{ .MediaType.Type }}" href="{{ .Permalink }}" title="{{ $.Site.Title }}">
+{{- end }}
+
+<meta property="og:site_name" content="{{ .Site.Title }}">
+<meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
+<meta property="og:title" content="{{ $title }}">
+{{- with (.Params.description | default .Site.Params.description) }}
+<meta property="og:description" content="{{ . }}">
+{{- end }}
+<meta property="og:url" content="{{ .Permalink }}">
+{{- with partial "resolve-feature-image.html" . }}
+<meta property="og:image" content="{{ .Permalink }}">
+{{- end }}
+<meta name="twitter:card" content="{{ if .Params.feature_image }}summary_large_image{{ else }}summary{{ end }}">
+
+{{ $css := partial "assets/css.html" . }}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}">

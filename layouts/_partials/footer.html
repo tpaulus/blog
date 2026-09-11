@@ -1,0 +1,12 @@
+<footer class="gh-foot{{ if not (.Site.Menus.footer) }} no-menu{{ end }} gh-outer">
+    <div class="gh-foot-inner gh-inner">
+        <div class="gh-copyright">
+            {{ .Site.Title }} &copy; {{ now.Format "2006" }}
+        </div>
+        {{ with .Site.Menus.footer }}
+        <nav class="gh-foot-menu" aria-label="Secondary">
+            {{ partial "menu.html" (dict "context" $ "menuID" "footer") }}
+        </nav>
+        {{ end }}
+    </div>
+</footer>

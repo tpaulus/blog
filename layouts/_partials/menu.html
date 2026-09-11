@@ -1,0 +1,17 @@
+{{/*
+  Renders a horizontal nav list for the given menu ID (e.g. "main" or
+  "footer"), replacing Ghost's {{navigation}} helper with Hugo menus
+  defined in hugo.toml.
+*/}}
+{{ $context := .context }}
+{{ $menuID := .menuID }}
+{{ $menu := index $context.Site.Menus $menuID }}
+{{ if $menu }}
+<ul class="nav">
+    {{ range $menu }}
+    <li>
+        <a href="{{ .URL }}"{{ if $context.IsMenuCurrent $menuID . }} aria-current="page"{{ end }}>{{ .Name }}</a>
+    </li>
+    {{ end }}
+</ul>
+{{ end }}

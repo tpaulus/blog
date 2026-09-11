@@ -1,0 +1,22 @@
+{
+  "name": "toms-journal",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Hugo source for blog.tompaulus.com",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "hugo server --buildDrafts",
+    "lint": "node scripts/lint-local-images.mjs",
+    "build:hugo": "hugo --minify --panicOnWarning --cleanDestinationDir",
+    "build:search": "pagefind --site public",
+    "build": "npm run build:hugo && npm run lint && npm run build:search",
+    "test": "node --test && npm run build",
+    "deploy": "node scripts/deploy-bunny.mjs"
+  },
+  "dependencies": {
+    "pagefind": "1.4.0",
+    "yaml": "2.8.1"
+  }
+}

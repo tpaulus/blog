@@ -1,0 +1,21 @@
+{{/*
+  Ports Alto's post-image.hbs. Renders a post/page's feature image with an
+  optional caption. feature_image is a local page-resource match path
+  (e.g. "media/2013/11/photo.jpg"); it is resolved against the page's bundle
+  resources so the published <img> URL lives under the post/page's own
+  route rather than the legacy Ghost /content/images/ path.
+*/}}
+{{ $page := . }}
+{{ with partial "resolve-feature-image.html" $page }}
+<figure class="post-media kg-width-wide">
+    <img
+        class="post-image"
+        src="{{ .RelPermalink }}"
+        alt="{{ $page.Params.feature_image_alt | default $page.Title }}"
+        loading="lazy"
+    >
+    {{ with $page.Params.feature_image_caption }}
+    <figcaption>{{ . | safeHTML }}</figcaption>
+    {{ end }}
+</figure>
+{{ end }}

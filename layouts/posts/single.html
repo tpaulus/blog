@@ -1,0 +1,23 @@
+{{ define "main" }}
+<div class="content-area">
+<main class="site-main" id="gh-main">
+
+    <article class="post{{ if not .Params.feature_image }} no-image{{ end }} single-post{{ if or (eq .Params.layout "custom-narrow-feature-image") (eq .Params.layout_style "custom-narrow-feature-image") (eq .Params.custom_template "custom-narrow-feature-image") }} has-narrow-feature-image{{ end }}" data-pagefind-body>
+
+        <header class="article-header gh-canvas">
+            {{ partial "post-meta.html" . }}
+            <h1 class="post-title">{{ .Title }}</h1>
+            {{ partial "feature-image.html" . }}
+        </header>
+
+        <div class="gh-content gh-canvas">
+            {{ .Content }}
+        </div>
+
+    </article>
+
+    {{ partial "related-posts.html" . }}
+
+</main>
+</div>
+{{ end }}

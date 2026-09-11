@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.Language.Lang | default "en" }}" class="{{ if ne .Site.Params.colorScheme "light" }}dark-mode{{ end }}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {{ partial "head.html" . }}
+</head>
+<body class="is-head-left-logo{{ if eq .Type "pages" }} page-template{{ end }}">
+<div class="site">
+
+    {{ partial "header.html" . }}
+
+    <div class="site-content">
+        {{ block "main" . }}{{ end }}
+    </div>
+
+    {{ partial "footer.html" . }}
+
+</div>
+
+{{ partial "search-modal.html" . }}
+
+{{ $js := partial "assets/js.html" . }}
+<script src="{{ $js.RelPermalink }}"></script>
+
+</body>
+</html>

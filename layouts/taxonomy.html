@@ -1,0 +1,21 @@
+{{ define "main" }}
+<div class="content-area">
+<main class="site-main" id="gh-main">
+
+    <section class="term gh-outer">
+        <div class="term-wrapper">
+            <h1 class="term-name">{{ .Data.Singular | humanize | pluralize | title }}</h1>
+        </div>
+    </section>
+
+    <div class="post-feed">
+        <ul class="tag-index">
+            {{ range site.Taxonomies.tag.Alphabetical }}
+            <li><a class="post-tag" href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a> <span class="post-meta">({{ .Count }})</span></li>
+            {{ end }}
+        </ul>
+    </div>
+
+</main>
+</div>
+{{ end }}

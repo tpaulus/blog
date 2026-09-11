@@ -1,0 +1,38 @@
+{{/*
+  Ports Alto's partials/loop.hbs: a single post-feed card used on the home
+  page, section lists, and tag term pages.
+*/}}
+{{ $page := . }}
+<article class="post{{ if not $page.Params.feature_image }} no-image{{ end }}">
+
+    {{ with partial "resolve-feature-image.html" $page }}
+    <figure class="post-media gh-canvas">
+        <div class="u-placeholder horizontal kg-width-wide">
+            <a class="post-image-link" href="{{ $page.RelPermalink }}" aria-hidden="true" tabindex="-1">
+                <img
+                    class="post-image u-object-fit"
+                    src="{{ .RelPermalink }}"
+                    alt="{{ $page.Params.feature_image_alt | default $page.Title }}"
+                    loading="lazy"
+                >
+            </a>
+        </div>
+    </figure>
+    {{ end }}
+
+    <div class="gh-canvas">
+        <header class="post-header">
+            <h2 class="post-title">
+                <a class="post-title-link" href="{{ $page.RelPermalink }}">{{ $page.Title }}</a>
+            </h2>
+            {{ partial "post-meta.html" $page }}
+        </header>
+
+        {{ if or $page.Params.description $page.Summary }}
+        <div class="post-excerpt">
+            {{ partial "excerpt.html" $page }}
+        </div>
+        {{ end }}
+    </div>
+
+</article>

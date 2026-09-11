@@ -1,0 +1,19 @@
+{{ define "main" }}
+<div class="content-area">
+<main class="site-main" id="gh-main">
+
+    {{ $paginator := .Paginate .RegularPages }}
+
+    <div class="post-feed">
+        {{ range $paginator.Pages }}
+            {{ partial "post-card.html" . }}
+        {{ else }}
+            <p class="post-feed-empty">There's nothing here yet.</p>
+        {{ end }}
+    </div>
+
+    {{ partial "pagination.html" $paginator }}
+
+</main>
+</div>
+{{ end }}

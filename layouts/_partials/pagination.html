@@ -1,0 +1,27 @@
+{{/*
+  Ports Alto's partials/pagination.hbs. Expects "." to be the Hugo
+  paginator already created by the calling list/home/term template via
+  {{ $paginator := .Paginate ... }}.
+*/}}
+{{ $paginator := . }}
+{{ if gt $paginator.TotalPages 1 }}
+<div class="gh-outer">
+<nav class="pagination" aria-label="Pagination">
+
+    <div class="pagination-left">
+        {{ if $paginator.HasPrev }}
+        <a href="{{ $paginator.Prev.URL }}" rel="prev">{{ partial "icons/arrow-left.html" . }} Previous</a>
+        {{ end }}
+    </div>
+
+    <span class="page-number hidden-xs hidden-sm">Page {{ $paginator.PageNumber }} of {{ $paginator.TotalPages }}</span>
+
+    <div class="pagination-right">
+        {{ if $paginator.HasNext }}
+        <a href="{{ $paginator.Next.URL }}" rel="next">Next {{ partial "icons/arrow-right.html" . }}</a>
+        {{ end }}
+    </div>
+
+</nav>
+</div>
+{{ end }}

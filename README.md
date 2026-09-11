@@ -1,0 +1,138 @@
+# Tom's Journal
+
+Hugo source for [blog.tompaulus.com](https://blog.tompaulus.com/).
+
+## Prerequisites
+
+- Hugo Extended `0.166.0` (see `.hugo-version`)
+- Node.js 22 or newer
+
+Install JavaScript dependencies:
+
+```bash
+npm ci
+```
+
+## Local development
+
+```bash
+npm run dev
+```
+
+Hugo serves drafts locally and reloads when content, templates, or assets change.
+
+## Write a new blog post
+
+Posts are self-contained Hugo leaf bundles. Choose a URL-safe slug, then create
+the post file and a directory for its local resources:
+
+```bash
+mkdir -p content/posts/my-new-post/media
+touch content/posts/my-new-post/index.md
+```
+
+Start `index.md` with valid front matter. Every renderable page, including a
+post or a static page, must set a nonempty trailing-slash `url` so its public
+URL remains stable:
+
+```yaml
+---
+title: My New Post
+slug: my-new-post
+date: 2026-09-11T09:00:00+02:00
+draft: true
+url: /my-new-post/
+---
+```
+
+Do not add `author` or `authors` metadata. Add tags, a description, and other
+post-specific metadata only when needed.
+
+Keep every image used by a post inside that post's bundle, normally under
+`media/`. Reference it with a bundle-relative path; remote image URLs are not
+permitted. Ordinary external links are fine. Use native Markdown footnotes,
+not raw HTML footnote markup:
+
+```markdown
+![A diagram of the publishing flow](media/publishing-flow.png)
+
+The deploy is checked before upload.[^deploy-check]
+See the [Bunny Storage documentation](https://bunny.net/docs/storage/http)
+for API details.
+
+[^deploy-check]: The validation step runs before deployment.
+```
+
+To add a feature image, copy it into the same bundle and point
+`feature_image` at it. `feature_image_alt` and `feature_image_caption` are
+optional:
+
+```yaml
+feature_image: media/hero.jpg
+feature_image_alt: A short description of the hero image
+feature_image_caption: Optional visible caption
+```
+
+Preview the draft with `npm run dev`, then visit the local URL printed by
+Hugo (normally `/my-new-post/`). Before publishing, run the local-image lint,
+production build:
+
+```bash
+npm run lint
+npm run build
+```
+
+`npm test` runs the ongoing site checks, including the production build.
+
+## Build and validate
+
+```bash
+npm test
+```
+
+This runs the ongoing checks, builds the production Hugo site, and creates the
+Pagefind index. The generated site is written to `public/`.
+
+To build without tests:
+
+```bash
+npm run build
+```
+
+## Deploy to Bunny
+
+Set the variables documented in `.env.example`, then run:
+
+```bash
+npm run deploy
+```
+
+Deployment builds and validates the site, then directly syncs it to the
+configured Storage Zone prefix (or safely to the zone root). It verifies
+SHA-256 checksums, removes only stale paths recorded in the previous
+`.deploy-manifest.json`, writes a new manifest, and then purges the Pull Zone
+when `BUNNY_PULL_ZONE_ID` and `BUNNY_API_KEY` are configured. It never
+recursively deletes a Storage directory or changes a Bunny origin. See the
+[Bunny deployment guide](docs/bunny-deployment.md) for setup and rollback by
+re-uploading a previous `public/` artifact.
+
+## GitHub Actions
+
+`.github/workflows/deploy-bunny.yml` runs local-image linting and the production
+build (including the Pagefind index) for pull requests to `main` and pushes to
+`main`. Only a successful push to `main` can deploy. That job uses the protected
+`production` environment, downloads the validated build artifact, and directly
+syncs that exact artifact to Bunny.
+The protected environment needs the Storage secrets plus
+`BUNNY_PULL_ZONE_ID` and `BUNNY_API_KEY` for the final cache purge. Configure
+these and the environment protection rules described in
+[the deployment guide](docs/bunny-deployment.md).
+
+## Documentation
+
+- [Bunny deployment](docs/bunny-deployment.md)
+
+## License
+
+This repository is licensed under the [MIT License](LICENSE). Ported Alto theme
+components retain their original [MIT license notice](licenses/ALTO-LICENSE.txt).

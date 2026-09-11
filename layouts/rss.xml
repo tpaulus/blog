@@ -1,0 +1,39 @@
+{{/*
+  Enriches Hugo's default RSS feed with full content, primary category
+  (tags), and a feature-image enclosure/media tag - closer to what Ghost's
+  own feed provided - since the bare title/link/summary feed produced by
+  Hugo's built-in fallback drops that information. Serves every RSS output
+  (home, section, taxonomy, and term) as the single most-general template.
+*/}}
+{{- $pages := .Pages -}}
+{{- if .IsHome -}}{{- $pages = site.RegularPages -}}{{- end -}}
+{{- "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\"?>" | safeHTML }}
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:media="http://search.yahoo.com/mrss/">
+  <channel>
+    <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} on {{ .Site.Title }}{{ end }}</title>
+    <link>{{ .Permalink }}</link>
+    <description>{{ with .Site.Params.description }}{{ . }}{{ else }}Recent content{{ if not .IsHome }} in {{ .Title }}{{ end }} on {{ .Site.Title }}{{ end }}</description>
+    <generator>Hugo</generator>
+    <language>{{ site.Language.Lang | default "en-us" }}</language>
+    <lastBuildDate>{{ now.Format "Mon, 02 Jan 2006 15:04:05 -0700" }}</lastBuildDate>
+    <atom:link href="{{ with .OutputFormats.Get "RSS" }}{{ .Permalink }}{{ else }}{{ $.Permalink }}{{ end }}" rel="self" type="application/rss+xml" />
+    {{- range first 20 (where $pages "Type" "posts") }}
+    <item>
+      <title>{{ .Title }}</title>
+      <link>{{ .Permalink }}</link>
+      <pubDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 -0700" }}</pubDate>
+      <guid>{{ .Permalink }}</guid>
+      {{- with (.Params.description | default .Summary | plainify) }}
+      <description>{{ . | truncate 400 | html }}</description>
+      {{- end }}
+      {{- range .GetTerms "tag" }}
+      <category>{{ .Title }}</category>
+      {{- end }}
+      {{- with partial "resolve-feature-image.html" . }}
+      <media:content medium="image" url="{{ .Permalink }}" />
+      {{- end }}
+      <content:encoded>{{ .Content | html }}</content:encoded>
+    </item>
+    {{- end }}
+  </channel>
+</rss>

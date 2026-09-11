@@ -1,0 +1,65 @@
+baseURL = "https://blog.tompaulus.com/"
+title = "Tom's Journal"
+locale = "en-US"
+defaultContentLanguage = "en"
+timeZone = "America/Los_Angeles"
+enableRobotsTXT = true
+summaryLength = 33
+
+[pagination]
+  pagerSize = 5
+  path = "page"
+
+[permalinks]
+  posts = "/:slug/"
+  pages = "/:slug/"
+
+[taxonomies]
+  tag = "tag"
+
+[outputs]
+  home = ["HTML", "RSS"]
+  section = ["HTML", "RSS"]
+  taxonomy = ["HTML", "RSS"]
+  term = ["HTML", "RSS"]
+
+[outputFormats.RSS]
+  mediaType = "application/rss+xml"
+  baseName = "rss"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.highlight]
+    noClasses = false
+
+[params]
+  description = "Thoughts, stories and ideas about Events, Life, Software, and Everything Else."
+  colorScheme = "dark"
+  titleFont = "modern-sans-serif"
+  bodyFont = "modern-sans-serif"
+  icon = "/site-assets/icon.png"
+  showRelatedPosts = true
+
+[menus]
+  [[menus.main]]
+    name = "Home"
+    pageRef = "/"
+    weight = 10
+  [[menus.main]]
+    name = "Life"
+    url = "/tag/life/"
+    weight = 20
+  [[menus.main]]
+    name = "Amateur Radio"
+    url = "/tag/radio/"
+    weight = 30
+  [[menus.main]]
+    name = "Software"
+    url = "/tag/software/"
+    weight = 40
+  [[menus.footer]]
+    name = "Content for humans, by humans"
+    url = "/ai-usage-on-the-blog/"
+    weight = 10

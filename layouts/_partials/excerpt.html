@@ -1,0 +1,14 @@
+{{/*
+  Ports Ghost's {{excerpt words="33"}} helper: a plain-text excerpt capped
+  at 33 words (matching hugo.toml's summaryLength = 33), preferring an
+  explicit front-matter description/custom excerpt over the auto-generated
+  summary.
+*/}}
+{{ $page := . }}
+{{ $text := $page.Params.description | default $page.Summary | plainify }}
+{{ $words := split (trim $text " \n\t") " " }}
+{{ if gt (len $words) 33 }}
+{{- (delimit (first 33 $words) " ") }} &hellip;
+{{- else -}}
+{{ delimit $words " " }}
+{{- end }}

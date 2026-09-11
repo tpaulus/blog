@@ -1,0 +1,56 @@
+{{/*
+  Ports Alto's partials/related.hbs.
+
+  Related posts: up to 3 posts sharing the current post's primary tag (the
+  first tag in front-matter order), excluding the current post, sorted
+  newest-first for a deterministic result. Ghost's related.hbs used
+  {{#get "posts" filter="tag:{{primary_tag.slug}}+id:-{{id}}" limit="3"}};
+  this reproduces the same intent with Hugo's taxonomy API.
+
+  Renders nothing if the post has no tags or no other post shares its
+  primary tag (graceful no-result behavior), matching site.showRelatedPosts.
+*/}}
+{{ $page := . }}
+{{ if $page.Site.Params.showRelatedPosts }}
+{{ $terms := $page.GetTerms "tag" }}
+{{ if $terms }}
+{{ $primary := index $terms 0 }}
+{{ $candidates := where $primary.Pages "Type" "posts" }}
+{{ $candidates = where $candidates "RelPermalink" "!=" $page.RelPermalink }}
+{{ $sorted := sort $candidates "Date" "desc" }}
+{{ $related := first 3 $sorted }}
+{{ if $related }}
+<section class="related-posts gh-canvas">
+
+    <h3 class="related-title">You might also like&hellip;</h3>
+
+    <div class="related-feed">
+    {{ range $related }}
+        <article class="post{{ if not .Params.feature_image }} no-image{{ end }}">
+
+            {{ $related := . }}
+            {{ with partial "resolve-feature-image.html" $related }}
+            <figure class="post-media">
+                <div class="u-placeholder rectangle">
+                    <a class="post-image-link" href="{{ $related.RelPermalink }}" aria-hidden="true" tabindex="-1">
+                        <img class="post-image u-object-fit" src="{{ .RelPermalink }}" alt="{{ $related.Params.feature_image_alt | default $related.Title }}" loading="lazy">
+                    </a>
+                </div>
+            </figure>
+            {{ end }}
+
+            <header class="post-header">
+                <h2 class="post-title">
+                    <a class="post-title-link" href="{{ .RelPermalink }}">{{ .Title }}</a>
+                </h2>
+                <time class="post-meta" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "02 Jan 2006" }}</time>
+            </header>
+
+        </article>
+    {{ end }}
+    </div>
+
+</section>
+{{ end }}
+{{ end }}
+{{ end }}

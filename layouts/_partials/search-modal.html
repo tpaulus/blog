@@ -1,0 +1,21 @@
+{{/*
+  Accessible search overlay (Ghost Search-style popover), toggled from the
+  header search buttons instead of navigating to a standalone /search/ page.
+  Pagefind's own UI assets (/pagefind/pagefind-ui.js, /pagefind/pagefind-ui.css)
+  are generated after the Hugo build by `pagefind --site public` and are
+  lazily fetched by assets/js/main.js the first time this modal is opened, so
+  the markup here only needs to provide the mount point and chrome.
+*/}}
+<div id="search-modal" class="search-modal" hidden data-pagefind-ignore>
+    <div class="search-modal-backdrop" data-search-dismiss></div>
+    <div class="search-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="search-modal-title" tabindex="-1">
+        <h2 id="search-modal-title" class="search-modal-title">Search</h2>
+        <div class="search-modal-head">
+            <p class="search-modal-status" role="status" data-search-status hidden></p>
+            <button type="button" class="search-modal-close" data-search-dismiss aria-label="Close search">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20" aria-hidden="true" focusable="false"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+        </div>
+        <div id="search" class="search-modal-results"></div>
+    </div>
+</div>
