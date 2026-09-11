@@ -3,15 +3,9 @@ title: Backing Up with Amazon Glacier
 slug: back-up-with-glacier
 date: 2017-01-05T01:13:00.000Z
 lastmod: 2018-01-07T22:36:31.000Z
-draft: false
-status: published
 tag:
   - Software
 feature_image: media/2017/01/Glacier-Banner.png
-featured: false
-ghost_id: 641e0dadc0c65700013898ef
-ghost_uuid: ce691f7c-6a55-4831-b5f6-25105b294edc
-url: /back-up-with-glacier/
 ---
 
 [Amazon Glacier](https://aws.amazon.com/glacier/) is a long-term, low-cost data archival and backup service offered by AWS. It is surprisingly cheap at only $0.004[^1] per GB per month, it has some caveats though. Mainly, retrievals can take upto 5 hours, and archives must be stored for a minimum of 3 months[^2].

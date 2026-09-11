@@ -3,15 +3,9 @@ title: My first EV Roadtrip
 slug: my-first-ev-roadtrip
 date: 2023-08-12T04:41:28.000Z
 lastmod: 2023-08-12T04:41:28.000Z
-draft: false
-status: published
 tag:
   - Life
 feature_image: media/2023/08/tempImageZI3eCB.gif
-featured: false
-ghost_id: 64a99eeb59b0260001796c69
-ghost_uuid: b3b2c539-4ef9-4b18-b266-f4ff164b4460
-url: /my-first-ev-roadtrip/
 ---
 
 My partner and I got our first Electric Vehicle, a 2023 Volvo XC40 Recharge P8 last November. We had gone on some day-trips and a weekend stay in Quinault, WA (149 miles from Seattle), we had never gone on a road-trip with an EV. That all changed when we drove up to Banff National Park in Canada for the 4th of July weekend.

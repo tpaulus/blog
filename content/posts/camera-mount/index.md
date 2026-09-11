@@ -3,15 +3,9 @@ title: Fortis FPV Camera Mount
 slug: camera-mount
 date: 2015-07-23T19:17:17.000Z
 lastmod: 2026-06-21T21:20:47.000Z
-draft: false
-status: published
 tag:
   - Drones
 feature_image: media/2015/07/FPV-Camera-Mount-on-TITAN.jpg
-featured: false
-ghost_id: 641e0dadc0c65700013898ea
-ghost_uuid: f4469d5d-a57d-44c8-ba57-236c35ffe94a
-url: /camera-mount/
 ---
 
 I’m using the [Fortis Airframes FPV Camera Mount](http://www.fortisairframes.com/fpv-board-camera-mount/) to mount my Board Camera for my FPV setup. It’s a really nice mount that protects the camera in the event of a crash.

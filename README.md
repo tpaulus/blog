@@ -31,9 +31,8 @@ mkdir -p content/posts/my-new-post/media
 touch content/posts/my-new-post/index.md
 ```
 
-Start `index.md` with valid front matter. Every renderable page, including a
-post or a static page, must set a nonempty trailing-slash `url` so its public
-URL remains stable:
+Start `index.md` with valid front matter. Choose a `slug` that preserves the
+page's public URL; the project-level permalink rules add the trailing slash:
 
 ```yaml
 ---
@@ -41,7 +40,6 @@ title: My New Post
 slug: my-new-post
 date: 2026-09-11T09:00:00+02:00
 draft: true
-url: /my-new-post/
 ---
 ```
 

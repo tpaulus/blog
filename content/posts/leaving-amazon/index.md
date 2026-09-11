@@ -3,15 +3,9 @@ title: Moving Beyond A→Z
 slug: leaving-amazon
 date: 2022-04-04T16:00:00.000Z
 lastmod: 2023-12-10T15:59:44.000Z
-draft: false
-status: published
 tag:
   - Life
 feature_image: https://unsplash.com/photos/silhouette-photo-of-trees-and-field-during-dawn-rDVP7whoibw
-featured: false
-ghost_id: 641e0dadc0c65700013898f5
-ghost_uuid: 977492fd-3efe-494b-915f-3c1f7c686653
-url: /leaving-amazon/
 ---
 
 I initially joined Amazon as a Software Engineering Intern in the summer of 2017, something I wrote about previously. In the three and a half years since I came back as a full-time engineer, I have poured my heart and soul into the service that would eventually become publicly known as [EC2 Image Builder](http://aws.amazon.com/image-builder/).

@@ -3,16 +3,10 @@ title: CodeDay - Spring 2014
 slug: codeday-spring-2014
 date: 2014-05-26T16:15:55.000Z
 lastmod: 2016-12-29T04:51:52.000Z
-draft: false
-status: published
 tag:
   - Events
   - CodeDay
 feature_image: media/2014/05/CodeDay-Kickoff-1.jpg
-featured: false
-ghost_id: 641e0dadc0c65700013898e2
-ghost_uuid: 6d51193e-76cb-4637-b7a6-0e9417fd7701
-url: /codeday-spring-2014/
 ---
 
 Codeday is a programming marathon that took this weekend at 23 locations across the nation. I was part of the organizer team for the San Diego CodeDay, which was hosted at CyberHive.

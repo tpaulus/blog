@@ -3,15 +3,9 @@ title: Resilient Infrastructure for the Homelab
 slug: resilient-homelab-infrastructure
 date: 2023-05-18T23:25:52.000Z
 lastmod: 2023-05-18T23:25:52.000Z
-draft: false
-status: published
 tag:
   - Software
 feature_image: https://unsplash.com/photos/a-close-up-of-a-tree-trunk-with-a-plant-growing-out-of-it-H2fQZ3CEqNQ
-featured: false
-ghost_id: 641e0dadc0c65700013898f8
-ghost_uuid: d8be20fc-e69e-4482-95e4-d6dd79fcd761
-url: /resilient-homelab-infrastructure/
 ---
 
 As I've alluded to in the past, Home Assistant plays a major role in making my home work, from managing the HVAC system, to automatically turning on the lights in the utility closet when the door opens. For many years, I ran Home Assistant on an i5 Intel NUC within a Docker Container. This worked great, but when the NUC went down (be it for updates, or some unscheduled maintenance), so did Home Assistant and my ability to control the lights. While my partner is very forgiving and understanding, it's rather annoying to not be able to turn on some of the lights for a few hours while I troubleshoot an issue.
