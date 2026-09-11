@@ -7,7 +7,7 @@ draft: false
 status: published
 tag:
   - Software
-feature_image: media/external/839f0e02c560f6ec-photo-1676665683968-ac5734f3c7c1.jpg
+feature_image: https://unsplash.com/photos/a-close-up-of-a-tree-trunk-with-a-plant-growing-out-of-it-H2fQZ3CEqNQ
 featured: false
 ghost_id: 641e0dadc0c65700013898f8
 ghost_uuid: d8be20fc-e69e-4482-95e4-d6dd79fcd761

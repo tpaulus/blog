@@ -10,7 +10,7 @@ tag:
 description: I've been using PiHole for my home-network DNS for years, but
   Cloudflare Teams Gateway has enabled me to improve my DNS availability at
   home, and take it with me, on the go.
-feature_image: media/external/41e26ad49afd5e0d-photo-1518276722293-31849d97dd9c.jpg
+feature_image: https://unsplash.com/photos/photo-of-white-pipes-on-the-ceiling-nOVHbXwXCys
 featured: false
 ghost_id: 641e0dadc0c65700013898f6
 ghost_uuid: 9a583368-7638-4077-9eb4-1616afca224a

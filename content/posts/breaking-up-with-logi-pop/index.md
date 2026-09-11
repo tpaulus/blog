@@ -8,7 +8,7 @@ status: published
 tag:
   - Software
   - Life
-feature_image: media/external/11905526e7234b06-photo-1623949676892-0e88eea8f940.jpg
+feature_image: https://unsplash.com/photos/white-and-red-round-device-AexHn1Bzb3Q
 featured: false
 ghost_id: 641e0dadc0c65700013898f4
 ghost_uuid: eaca2b20-02af-4857-a222-39aeb0f7404d

@@ -6,7 +6,7 @@ lastmod: 2026-06-21T21:37:09.000Z
 draft: false
 status: published
 tag: []
-feature_image: media/external/1a3e543679c8d042-photo-1703113691198-98eba6655b1a.jpg
+feature_image: https://unsplash.com/photos/a-rusted-metal-object-sitting-on-top-of-a-table-V0vuuVE8Gcw
 featured: false
 ghost_id: 6a04c33717c053000100cb10
 ghost_uuid: 1d0f1dae-9c57-4676-8e54-8a54d628e27b

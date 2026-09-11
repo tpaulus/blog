@@ -6,7 +6,8 @@
   route rather than the legacy Ghost /content/images/ path.
 */}}
 {{ $page := . }}
-{{ with partial "resolve-feature-image.html" $page }}
+{{ $featureImagePath := partial "resolve-feature-image.html" $page }}
+{{ with $page.Resources.GetMatch $featureImagePath }}
 {{ $medium := .Fit "768x768 webp q82" }}
 {{ $large := .Fit "1440x1440 webp q82" }}
 {{ $retina := .Fit "1920x1920 webp q85" }}
@@ -25,7 +26,9 @@
         width="{{ $retina.Width }}"
         height="{{ $retina.Height }}"
     >
-    {{ with $page.Params.feature_image_caption }}
+    {{ with index hugo.Data.unsplash_attribution $page.Params.feature_image }}
+    <figcaption>Photo by <a href="{{ .url }}">{{ .name }}</a> / <a href="https://unsplash.com/">Unsplash</a></figcaption>
+    {{ else with $page.Params.feature_image_caption }}
     <figcaption>{{ . | safeHTML }}</figcaption>
     {{ end }}
 </figure>

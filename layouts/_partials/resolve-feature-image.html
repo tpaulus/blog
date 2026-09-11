@@ -1,14 +1,12 @@
 {{/*
   Resolves a page's feature_image front-matter value (a local page-resource
   match path such as "media/2013/11/photo.jpg") against that page's bundle
-  resources, returning the matching resources.Image (or resources.Resource)
-  so callers can render its RelPermalink/Permalink under the post/page's own
-  route instead of the legacy Ghost /content/images/ path. Returns nil if the
-  page has no feature_image or the path doesn't match a bundled resource.
+  resources. Unsplash URLs resolve to the generated resource match path.
 */}}
 {{- $page := . -}}
 {{- $path := $page.Params.feature_image -}}
-{{- if $path -}}
-  {{- return $page.Resources.GetMatch $path -}}
+{{- if hasPrefix $path "https://unsplash.com/photos/" -}}
+media/external/unsplash-*.jpg
+{{- else if $path -}}
+{{ $path }}
 {{- end -}}
-{{- return -}}

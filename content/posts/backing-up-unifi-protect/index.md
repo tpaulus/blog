@@ -7,7 +7,7 @@ draft: false
 status: published
 tag:
   - Software
-feature_image: media/external/200d5800a49d4203-photo-1662186554373-ec885565963d.jpg
+feature_image: https://unsplash.com/photos/a-screenshot-of-a-video-game-5l0v2_B9MNI
 featured: false
 ghost_id: 641e0dadc0c65700013898f7
 ghost_uuid: bf31025c-0bce-4870-a2ae-19cd84ba1ced

@@ -27,6 +27,15 @@ function isApprovedExternalImage(value) {
     || /^https:\/\/opengraph\.githubassets\.com\/[^/]+\/[^/]+\/[^/]+$/.test(value);
 }
 
+function isUnsplashFeatureImage(value) {
+  try {
+    const url = new URL(value);
+    return url.protocol === 'https:' && url.hostname === 'unsplash.com' && url.pathname.startsWith('/photos/');
+  } catch {
+    return false;
+  }
+}
+
 function localPath(value, baseDirectory, root, location) {
   const source = String(value ?? '').trim();
   if (!source) fail(`${location} has an empty image URL`);
@@ -123,7 +132,9 @@ export function lintContent({ root = process.cwd(), contentDirectory = path.join
       fail(`${location} contains raw HTML on line(s) ${htmlLines.join(', ')}; use Markdown or a Hugo shortcode instead`);
     }
     if (metadata.feature_image !== undefined) {
-      localPath(metadata.feature_image, bundle, root, `${location} feature_image`);
+      if (!isUnsplashFeatureImage(metadata.feature_image)) {
+        localPath(metadata.feature_image, bundle, root, `${location} feature_image`);
+      }
     }
     for (const image of markdownImageSources(source)) {
       localPath(image, bundle, root, `${location} Markdown image`);

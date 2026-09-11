@@ -7,7 +7,7 @@ draft: false
 status: published
 tag:
   - Software
-feature_image: media/external/7093319bf8e301ac-photo-1647221141662-42ce6d222cf3.jpg
+feature_image: https://unsplash.com/photos/a-bird-nest-filled-with-eggs-on-top-of-a-table-E8fbT98Z4DE
 featured: false
 ghost_id: 6a36236676d57e00014d3545
 ghost_uuid: 49c703fc-0a40-4982-8aa5-6f442d175dac

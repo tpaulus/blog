@@ -7,7 +7,7 @@ draft: false
 status: published
 tag:
   - Radio
-feature_image: media/external/18b1a6ec58f98bb6-photo-1614095001727-c68624994241.jpg
+feature_image: https://unsplash.com/photos/brown-and-black-wooden-vinyl-record-player-6bKbu2O5TuM
 featured: false
 ghost_id: 66883d1a4b4fbc0001144ff6
 ghost_uuid: 05057f04-f5af-4f05-b29d-5491ce1bb14e

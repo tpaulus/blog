@@ -7,7 +7,7 @@ draft: false
 status: published
 tag:
   - Software
-feature_image: media/external/830cb8c3ffcdd51a-photo-1640739355178-d7e0817a0a44.jpg
+feature_image: https://unsplash.com/photos/a-close-up-of-a-pile-of-woven-material-xsmtEGcaN4U
 featured: false
 ghost_id: 6436d3a65471910001638a50
 ghost_uuid: 47cf8437-c70a-49a8-a6b8-58bb0c5b9d82

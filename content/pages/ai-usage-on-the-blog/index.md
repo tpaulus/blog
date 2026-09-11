@@ -6,7 +6,7 @@ lastmod: 2026-05-13T22:16:52.000Z
 draft: false
 status: published
 tag: []
-feature_image: media/external/1d797e18a1189c72-photo-1605493666596-f605022f28ce.jpg
+feature_image: https://unsplash.com/photos/yellow-and-black-robot-toy-f1CFb_Ek-is
 featured: false
 ghost_id: 6a04dee317c053000100cb60
 ghost_uuid: 2d63cd3e-852e-4cf3-adec-f858cfda6efb

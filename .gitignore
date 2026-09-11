@@ -10,3 +10,7 @@ npm-debug.log*
 .env
 .env.*
 !.env.example
+/.dev.env
+# Generated from Unsplash before local development and production builds.
+content/**/media/external/unsplash-*.jpg
+/data/unsplash_attribution.json

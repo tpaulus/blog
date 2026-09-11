@@ -7,7 +7,7 @@ draft: false
 status: published
 tag:
   - Life
-feature_image: media/external/448c3629860a8ca3-photo-1757301714935-c8127a21abc6.jpg
+feature_image: https://unsplash.com/photos/online-checkout-screen-with-payment-details-and-shopping-cart-sr927_EVdqk
 featured: false
 ghost_id: 69ff68ab17c053000100ca79
 ghost_uuid: 98952d30-70d2-41ed-bdb4-c0dbdf72ab55

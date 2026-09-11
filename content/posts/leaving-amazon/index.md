@@ -7,7 +7,7 @@ draft: false
 status: published
 tag:
   - Life
-feature_image: media/external/d6a30c90726a416d-photo-1476297816471-97713c4d237c.jpg
+feature_image: https://unsplash.com/photos/silhouette-photo-of-trees-and-field-during-dawn-rDVP7whoibw
 featured: false
 ghost_id: 641e0dadc0c65700013898f5
 ghost_uuid: 977492fd-3efe-494b-915f-3c1f7c686653

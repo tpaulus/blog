@@ -29,7 +29,8 @@
       {{- range .GetTerms "tag" }}
       <category>{{ .Title }}</category>
       {{- end }}
-      {{- with partial "resolve-feature-image.html" . }}
+      {{- $featureImagePath := partial "resolve-feature-image.html" . -}}
+      {{- with .Resources.GetMatch $featureImagePath }}
       <media:content medium="image" url="{{ .Permalink }}" />
       {{- end }}
       <content:encoded>{{ .Content | html }}</content:encoded>
