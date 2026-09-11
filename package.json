@@ -16,7 +16,7 @@
     "deploy": "node scripts/deploy-bunny.mjs"
   },
   "dependencies": {
-    "pagefind": "1.4.0",
+    "pagefind": "1.5.2",
     "yaml": "2.9.0"
   }
 }
