@@ -3,7 +3,7 @@
        site's accent color setting. This static build defines it directly so
        accent-colored links, tags, and borders keep Alto's default blue. */
     --ghost-accent-color: #49a8e4;
-    --primary-color: var(--ghost-accent-color, #49a8e4);
+    --primary-color:#ff572f;
     --primary-text-color: #333;
     --secondary-text-color: #aaa;
     --red-color: #ff7473;
