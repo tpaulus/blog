@@ -5,7 +5,8 @@
 {{ $page := . }}
 <article class="post{{ if not $page.Params.feature_image }} no-image{{ end }}">
 
-    {{ with partial "resolve-feature-image.html" $page }}
+    {{ $featureImagePath := partial "resolve-feature-image.html" $page }}
+    {{ with $page.Resources.GetMatch $featureImagePath }}
     {{ $small := .Fit "640x640 webp q80" }}
     {{ $medium := .Fit "960x960 webp q82" }}
     {{ $large := .Fit "1440x1440 webp q84" }}

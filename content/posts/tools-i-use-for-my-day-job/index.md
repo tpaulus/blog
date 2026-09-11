@@ -4,7 +4,7 @@ slug: tools-i-use-for-my-day-job
 date: 2026-06-15T15:58:34.000Z
 lastmod: 2026-06-21T21:37:09.000Z
 tag: []
-feature_image: media/external/1a3e543679c8d042-photo-1703113691198-98eba6655b1a.jpg
+feature_image: https://unsplash.com/photos/a-rusted-metal-object-sitting-on-top-of-a-table-V0vuuVE8Gcw
 layout: custom-narrow-feature-image
 ---
 

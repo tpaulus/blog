@@ -5,7 +5,7 @@ date: 2026-06-24T15:43:27.000Z
 lastmod: 2026-06-24T15:43:27.000Z
 tag:
   - Software
-feature_image: media/external/7093319bf8e301ac-photo-1647221141662-42ce6d222cf3.jpg
+feature_image: https://unsplash.com/photos/a-bird-nest-filled-with-eggs-on-top-of-a-table-E8fbT98Z4DE
 ---
 
 When we moved in to our house just over a year ago, it came with a Nest Thermostat. It worked well enough, and after paying the [3rd Party integration tax](https://www.home-assistant.io/integrations/nest/) to Google, it worked with [Home Assistant](https://www.home-assistant.io/), so we left it at that – we had more impactful improvements to make. When we upgraded the 30+ year old HVAC system a few months later, the Air Handler that replaced our furnace had support for 24V thermostats (for backwards compatibility), so the Nest survived that change as well. However, as the months went on and I made more automations to coordinate the thermostats across the house (the HVAC upgrade added two additional heads to the mix), the reliance on Google's cloud meant that updates to the Nest thermostat from Home Assistant were both slower than the local thermostats, and crucially, relied on the internet for them to work.

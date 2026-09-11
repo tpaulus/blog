@@ -65,7 +65,7 @@ Use Markdown for images and a Hugo shortcode for embeds; raw HTML in posts is
 not permitted. The local-image lint rejects raw HTML outside fenced code
 blocks.
 
-To add a feature image, copy it into the same bundle and point
+To add a local feature image, copy it into the same bundle and point
 `feature_image` at it. `feature_image_alt` and `feature_image_caption` are
 optional:
 
@@ -74,6 +74,21 @@ feature_image: media/hero.jpg
 feature_image_alt: A short description of the hero image
 feature_image_caption: Optional visible caption
 ```
+
+For an Unsplash feature image, set `feature_image` to its canonical photo-page
+URL. The official Unsplash API supplies the image and photographer attribution;
+`npm run dev`, `npm run lint`, and every production build download the image
+into the bundle and generate the visible credit. The image and generated
+attribution data are gitignored. Set `UNSPLASH_ACCESS_KEY` locally and add the
+same value as the repository's `UNSPLASH_ACCESS_KEY` Actions secret:
+
+```yaml
+feature_image: https://unsplash.com/photos/a-description-photo-id
+```
+
+Generated Unsplash images and attribution are reused locally. GitHub Actions
+caches them across runs and calls Unsplash only when a feature image changes
+or is missing from the cache.
 
 Preview the draft with `npm run dev`, then visit the local URL printed by
 Hugo (normally `/my-new-post/`). Before publishing, run the local-image lint,

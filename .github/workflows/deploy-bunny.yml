@@ -39,10 +39,24 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Restore Unsplash feature image cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            content/**/media/external/unsplash-*.jpg
+            data/unsplash_attribution.json
+          key: unsplash-feature-images-${{ runner.os }}-${{ hashFiles('content/**/index.md', 'scripts/fetch-feature-images.mjs') }}
+          restore-keys: |
+            unsplash-feature-images-${{ runner.os }}-
+
       - name: Lint local images
+        env:
+          UNSPLASH_ACCESS_KEY: ${{ secrets.UNSPLASH_ACCESS_KEY }}
         run: npm run lint
 
       - name: Build production site
+        env:
+          UNSPLASH_ACCESS_KEY: ${{ secrets.UNSPLASH_ACCESS_KEY }}
         run: npm run build
 
       - name: Upload production build

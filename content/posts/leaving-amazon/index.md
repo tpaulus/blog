@@ -5,7 +5,7 @@ date: 2022-04-04T16:00:00.000Z
 lastmod: 2023-12-10T15:59:44.000Z
 tag:
   - Life
-feature_image: media/external/d6a30c90726a416d-photo-1476297816471-97713c4d237c.jpg
+feature_image: https://unsplash.com/photos/silhouette-photo-of-trees-and-field-during-dawn-rDVP7whoibw
 ---
 
 I initially joined Amazon as a Software Engineering Intern in the summer of 2017, something I wrote about previously. In the three and a half years since I came back as a full-time engineer, I have poured my heart and soul into the service that would eventually become publicly known as [EC2 Image Builder](http://aws.amazon.com/image-builder/).

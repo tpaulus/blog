@@ -5,7 +5,7 @@ date: 2024-07-06T02:14:04.000Z
 lastmod: 2024-07-06T02:14:04.000Z
 tag:
   - Radio
-feature_image: media/external/18b1a6ec58f98bb6-photo-1614095001727-c68624994241.jpg
+feature_image: https://unsplash.com/photos/brown-and-black-wooden-vinyl-record-player-6bKbu2O5TuM
 ---
 
 A number of weeks ago, Melinda came back from Bainbridge Island with a packet from her mother. Within it, a helpful emergency preparedness guide and an emergency contact form with a handful of cell phone numbers. This lead to a conversation between the two of us on one of our afternoon walks, how would we actually get a hold of someone if the cell-phone towers are down or congested. Having an out-0f-state contact does very little, if you cannot reach them. We had recently watched a [Geerling Engineering](https://www.youtube.com/@GeerlingEngineering) Video where Jeff and his dad got their amateur radio licenses and thought that maybe we should do the same; so that when the next disaster strikes, we can at least get a hold of one another.

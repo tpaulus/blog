@@ -7,11 +7,12 @@
     "node": ">=22"
   },
   "scripts": {
-    "dev": "hugo server --buildDrafts",
-    "lint": "node scripts/lint-local-images.mjs",
-    "build:hugo": "hugo --minify --panicOnWarning --cleanDestinationDir",
+    "fetch:feature-images": "node scripts/fetch-feature-images.mjs",
+    "dev": "npm run fetch:feature-images && hugo server --buildDrafts",
+    "lint": "npm run fetch:feature-images && node scripts/lint-local-images.mjs",
+    "build:hugo": "npm run fetch:feature-images && hugo --minify --panicOnWarning --cleanDestinationDir",
     "build:search": "pagefind --site public",
-    "build": "npm run build:hugo && npm run lint && npm run build:search",
+    "build": "npm run build:hugo && node scripts/lint-local-images.mjs && npm run build:search",
     "test": "node --test && npm run build",
     "deploy": "node scripts/deploy-bunny.mjs"
   },

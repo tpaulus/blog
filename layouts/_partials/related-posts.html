@@ -29,7 +29,8 @@
         <article class="post{{ if not .Params.feature_image }} no-image{{ end }}">
 
             {{ $related := . }}
-            {{ with partial "resolve-feature-image.html" $related }}
+            {{ $featureImagePath := partial "resolve-feature-image.html" $related }}
+            {{ with $related.Resources.GetMatch $featureImagePath }}
             <figure class="post-media">
                 <div class="u-placeholder rectangle">
                     <a class="post-image-link" href="{{ $related.RelPermalink }}" aria-hidden="true" tabindex="-1">

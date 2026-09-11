@@ -6,7 +6,7 @@ lastmod: 2026-05-13T20:42:19.000Z
 tag:
   - Software
   - Life
-feature_image: media/external/11905526e7234b06-photo-1623949676892-0e88eea8f940.jpg
+feature_image: https://unsplash.com/photos/white-and-red-round-device-AexHn1Bzb3Q
 ---
 
 I got my first set of [Logitech Pop buttons](https://www.amazon.com/gp/product/B01JO8TIH4) (Small BT LE Buttons that interface with a WiFi Hub) in December 2017 and they have moved with me from college dorm room, to dorm room, finally making their way on the wall next to my bed in my apartment now where they control the various lights not only in my bedroom, but in the entire apartment. Ever since the beginning, I have leveraged the convenience of these tiny, reliable (I have yet to need to change the batteries in over 3 years of clicking) via IFTTT. However, with the [recent announcement](https://ifttt.com/explore/introducing_ifttt_pro) of IFTTT moving to a subscription model, I needed to look elsewhere. While all of the lights in my bedroom are Philips Hue bulbs, many of the other smart devices I have in the rest of my place are not, leading me to use a central automation tool ([Home Assistant](https://www.home-assistant.io/) in my case) to manage everything.

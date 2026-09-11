@@ -4,7 +4,7 @@ slug: ai-usage-on-the-blog
 date: 2026-05-13T20:33:25.000Z
 lastmod: 2026-05-13T22:16:52.000Z
 tag: []
-feature_image: media/external/1d797e18a1189c72-photo-1605493666596-f605022f28ce.jpg
+feature_image: https://unsplash.com/photos/yellow-and-black-robot-toy-f1CFb_Ek-is
 ---
 
 There is no doubt that generative AI in the form of Large Language Models is changing the way we (humans) interact with content. So much content is both "read" and "written" by AI everyday that it likely significantly outpaces the volumes consumed and produced by carbon-based intelligence (humans).

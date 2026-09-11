@@ -5,7 +5,7 @@ date: 2023-05-24T01:16:32.000Z
 lastmod: 2026-05-10T02:20:32.000Z
 tag:
   - Software
-feature_image: media/external/200d5800a49d4203-photo-1662186554373-ec885565963d.jpg
+feature_image: https://unsplash.com/photos/a-screenshot-of-a-video-game-5l0v2_B9MNI
 ---
 
 A few weeks ago, I was scrolling through the [r/Ubiquiti Subreddit](https://www.reddit.com/r/Ubiquiti/) when I came across a post where someone had their NVR stolen during a break in. We have a number of Protect cameras across the house and the post got me thinking... I have offsite backups of data stored on the NAS, but not the NVR. A lot of the recordings are useless, but it would be really nice to have the events stored offsite for a few days, just in case.

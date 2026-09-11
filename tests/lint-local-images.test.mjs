@@ -34,6 +34,13 @@ test('local image lint rejects external image URLs in content and front matter',
   assert.throws(() => lintLocalImages({ root }), /external image URL/);
 });
 
+test('local image lint permits canonical Unsplash feature image URLs', (t) => {
+  const root = fixtureDirectory();
+  t.after(() => fs.rmSync(root, { recursive: true, force: true }));
+  writeBundle(root, '---\ntitle: Example\nurl: /example/\nfeature_image: https://unsplash.com/photos/a-photo-AexHn1Bzb3Q\n---\n');
+  assert.deepEqual(lintLocalImages({ root }), { bundles: 1, pages: 0 });
+});
+
 test('local image lint rejects raw HTML outside code fences', (t) => {
   const root = fixtureDirectory();
   t.after(() => fs.rmSync(root, { recursive: true, force: true }));
