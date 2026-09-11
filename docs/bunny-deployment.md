@@ -57,6 +57,11 @@ The manifest is a safety boundary, not an inventory of the Storage Zone.
 Deploying at the zone root is allowed because the script never lists or
 recursively deletes it.
 
+If a pre-existing manifest is malformed, deployment preserves all files it
+cannot trust, uploads and verifies the complete current site, then writes a
+valid replacement manifest. Run a later deployment to remove files that are
+stale relative to that replacement manifest.
+
 Useful options:
 
 ```bash

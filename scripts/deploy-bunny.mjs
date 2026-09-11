@@ -268,16 +268,26 @@ function validateManifest(manifest) {
   return records;
 }
 
-async function loadPreviousRecords(base, storagePassword) {
-  const contents = await download(base, storagePassword, DEPLOY_MANIFEST);
+export function parsePreviousRecords(contents) {
   if (!contents) {
-    return [];
+    return { records: [], trusted: true };
   }
   try {
-    return validateManifest(JSON.parse(contents.toString("utf8")));
+    return {
+      records: validateManifest(JSON.parse(contents.toString("utf8"))),
+      trusted: true,
+    };
   } catch (error) {
-    throw new Error(`Existing deployment manifest is invalid: ${error.message}`);
+    return { records: [], trusted: false, error: error.message };
   }
+}
+
+async function loadPreviousRecords(base, storagePassword) {
+  const parsed = parsePreviousRecords(await download(base, storagePassword, DEPLOY_MANIFEST));
+  if (!parsed.trusted) {
+    console.warn(`Existing deployment manifest is invalid; preserving untracked remote files: ${parsed.error}`);
+  }
+  return parsed;
 }
 
 async function verifyRecords(base, storagePassword, records, concurrency) {
@@ -362,7 +372,7 @@ async function deploy({
   });
   records.sort((left, right) => left.path.localeCompare(right.path));
 
-  const previousRecords = await loadPreviousRecords(base, storagePassword);
+  const { records: previousRecords, trusted: previousManifestIsTrusted } = await loadPreviousRecords(base, storagePassword);
   const currentPaths = new Set(records.map((record) => record.path));
   const staleRecords = previousRecords.filter((record) => !currentPaths.has(record.path));
   console.log(
@@ -375,7 +385,9 @@ async function deploy({
 
   await mapConcurrent(records, concurrency, (record) => upload(base, storagePassword, record, false));
   await verifyRecords(base, storagePassword, records, concurrency);
-  await mapConcurrent(staleRecords, concurrency, (record) => remove(base, storagePassword, record.path, false));
+  if (previousManifestIsTrusted) {
+    await mapConcurrent(staleRecords, concurrency, (record) => remove(base, storagePassword, record.path, false));
+  }
 
   const completionManifest = manifestRecord(records);
   await upload(base, storagePassword, completionManifest, false);
