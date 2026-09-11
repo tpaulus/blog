@@ -18,5 +18,31 @@ test('deployment preserves remote files when the previous manifest is invalid', 
 
   assert.deepEqual(result.records, []);
   assert.equal(result.trusted, false);
-  assert.match(result.error, /unique and sorted/);
+  assert.match(result.error, /must be unique/);
+});
+
+test('deployment accepts manifests in deterministic code-unit path order', () => {
+  const result = parsePreviousRecords(Buffer.from(JSON.stringify({
+    version: 1,
+    files: [
+      { path: 'pagefind/a-1.js', size: 1, sha256: 'a'.repeat(64) },
+      { path: 'pagefind/a_1.js', size: 1, sha256: 'b'.repeat(64) },
+    ],
+  })));
+
+  assert.equal(result.trusted, true);
+  assert.deepEqual(result.records.map((record) => record.path), ['pagefind/a-1.js', 'pagefind/a_1.js']);
+});
+
+test('deployment normalizes safe legacy manifest ordering', () => {
+  const result = parsePreviousRecords(Buffer.from(JSON.stringify({
+    version: 1,
+    files: [
+      { path: 'pagefind/a_1.js', size: 1, sha256: 'b'.repeat(64) },
+      { path: 'pagefind/a-1.js', size: 1, sha256: 'a'.repeat(64) },
+    ],
+  })));
+
+  assert.equal(result.trusted, true);
+  assert.deepEqual(result.records.map((record) => record.path), ['pagefind/a-1.js', 'pagefind/a_1.js']);
 });

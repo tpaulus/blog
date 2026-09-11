@@ -237,6 +237,12 @@ function validateFilePath(filePath) {
   }
 }
 
+function compareFilePaths(left, right) {
+  if (left < right) return -1;
+  if (left > right) return 1;
+  return 0;
+}
+
 function validateManifest(manifest) {
   if (!manifest || typeof manifest !== "object" || manifest.version !== MANIFEST_VERSION) {
     throw new Error("Deployment manifest has an unsupported format");
@@ -246,7 +252,7 @@ function validateManifest(manifest) {
   }
 
   const records = [];
-  let previousPath = "";
+  const paths = new Set();
   for (const file of manifest.files) {
     if (
       !file
@@ -259,13 +265,13 @@ function validateManifest(manifest) {
       throw new Error("Deployment manifest contains an invalid file record");
     }
     validateFilePath(file.path);
-    if (file.path <= previousPath) {
-      throw new Error("Deployment manifest files must be unique and sorted");
+    if (paths.has(file.path)) {
+      throw new Error("Deployment manifest files must be unique");
     }
-    previousPath = file.path;
+    paths.add(file.path);
     records.push({ path: file.path, size: file.size, sha256: file.sha256 });
   }
-  return records;
+  return records.sort((left, right) => compareFilePaths(left.path, right.path));
 }
 
 export function parsePreviousRecords(contents) {
@@ -370,7 +376,7 @@ async function deploy({
     validateFilePath(relativePath);
     records.push(await fileRecord(sourceRoot, relativePath));
   });
-  records.sort((left, right) => left.path.localeCompare(right.path));
+  records.sort((left, right) => compareFilePaths(left.path, right.path));
 
   const { records: previousRecords, trusted: previousManifestIsTrusted } = await loadPreviousRecords(base, storagePassword);
   const currentPaths = new Set(records.map((record) => record.path));

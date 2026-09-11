@@ -59,8 +59,8 @@ recursively deletes it.
 
 If a pre-existing manifest is malformed, deployment preserves all files it
 cannot trust, uploads and verifies the complete current site, then writes a
-valid replacement manifest. Run a later deployment to remove files that are
-stale relative to that replacement manifest.
+valid replacement manifest. A safely structured legacy manifest with a
+different file ordering is normalized automatically.
 
 Useful options:
 
