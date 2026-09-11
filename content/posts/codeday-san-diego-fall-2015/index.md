@@ -3,16 +3,10 @@ title: CodeDay San Diego Fall 2015
 slug: codeday-san-diego-fall-2015
 date: 2015-11-11T16:18:36.000Z
 lastmod: 2016-12-29T05:51:33.000Z
-draft: false
-status: published
 tag:
   - Events
   - CodeDay
 feature_image: media/2015/11/IMG_20151107_132638.jpg
-featured: false
-ghost_id: 641e0dadc0c65700013898eb
-ghost_uuid: 71c1cc8a-0a00-484c-92f8-6856f34da158
-url: /codeday-san-diego-fall-2015/
 ---
 
 The fifth CodeDay in San Diego was a huge success. Hosted at the new Central Library in Downtown San Diego, this CodeDay was one of the largest events yet. We had over 140 attendees register for the event, and 94 attendees ended up checking in to the event.

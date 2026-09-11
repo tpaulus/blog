@@ -3,16 +3,10 @@ title: CodeDay San Diego Winter 2016
 slug: codeday-san-diego-winter-2016
 date: 2016-02-24T09:20:18.000Z
 lastmod: 2016-12-29T04:10:15.000Z
-draft: false
-status: published
 tag:
   - Events
   - CodeDay
 feature_image: media/2016/02/PANO_20160213_123600.jpg
-featured: false
-ghost_id: 641e0dadc0c65700013898ec
-ghost_uuid: fafaf49e-5ef2-4973-9eb5-95f202201f26
-url: /codeday-san-diego-winter-2016/
 ---
 
 The sixth CodeDay in San Diego was a huge success. We returned to CyberHive this season, the venue that hosted the first CodeDay back in May 2014. This event was a little smaller than previous events, only 75 attendees registered for the event; however, the event was still a great success!

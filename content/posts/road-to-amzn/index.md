@@ -3,16 +3,10 @@ title: The Road to Seattle
 slug: road-to-amzn
 date: 2017-03-11T06:09:27.000Z
 lastmod: 2017-03-11T06:16:02.000Z
-draft: false
-status: published
 tag:
   - Life
   - Internship
 feature_image: media/2017/03/SEA-Banner-1.png
-featured: false
-ghost_id: 641e0dadc0c65700013898f1
-ghost_uuid: 98623685-5a7a-478c-8cef-b65fbe202c0e
-url: /road-to-amzn/
 ---
 
 Unlike Mike Rowe's "Road To Coober Pedy," my trip to Seattle, Washington for my [Summer Internship with Amazon](/amzn-sde-internship/), will hopefully not be filled with death, injury, or road kill. This post will help serve as my record of the progress that I have made, and the events that have taken place, leading up to my First Day as a Software Development Engineering Intern.

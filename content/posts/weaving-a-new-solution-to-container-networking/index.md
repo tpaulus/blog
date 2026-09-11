@@ -3,15 +3,9 @@ title: Weaving a New Solution to Container Networking
 slug: weaving-a-new-solution-to-container-networking
 date: 2023-05-19T19:48:40.000Z
 lastmod: 2026-05-13T19:04:23.000Z
-draft: false
-status: published
 tag:
   - Software
 feature_image: media/external/830cb8c3ffcdd51a-photo-1640739355178-d7e0817a0a44.jpg
-featured: false
-ghost_id: 6436d3a65471910001638a50
-ghost_uuid: 47cf8437-c70a-49a8-a6b8-58bb0c5b9d82
-url: /weaving-a-new-solution-to-container-networking/
 ---
 
 As I described in [my recent post setting up Nomad](blog.tompaulus.com/resilient-homelab-infrastructure/ ), I restored to using `macvlan` to get containers their own network addresses, but this had the unfortunate side effect of container being unable to talk to their host due to intricacies of how the Linux kernel does packet routing. I wasn't happy with the solution, both because containers would sometimes get stuck and not get cleaned up, resulting in more than one container with the same IP address running on the network, leading to all sorts of strange issues; and because it meant that there was a single point of failure in my router, serving both Consul DNS and hosting cloudflared for the applications which used `macvlan`. So I went looking for options.

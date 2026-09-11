@@ -3,15 +3,9 @@ title: Quiver, My New Favorite Note Taking App
 slug: quiver-sync
 date: 2016-07-04T21:40:53.000Z
 lastmod: 2016-12-30T20:00:09.000Z
-draft: false
-status: published
 tag:
   - Software
 feature_image: media/2016/12/qs-banner.png
-featured: false
-ghost_id: 641e0dadc0c65700013898ed
-ghost_uuid: 036adeb8-b040-4aa5-8ea8-cb9d7fc90bae
-url: /quiver-sync/
 ---
 
 Evernote was the note taking application was the most popular option for a number of years and was the least bad of the options out there. However, recently Evernote has been promoting their paid plans in a way the hurts their free users. Removing popular features, like emailing in notes [(1)](https://help.evernote.com/hc/en-us/articles/209005347-How-to-save-email-into-Evernote), and imposing extra restrictions, like limiting you to only 2 devices [(2)](https://blog.evernote.com/blog/2016/06/28/changes-to-evernotes-pricing-plans/), made me reconsider if Evernote was really the best option out there. Popular alternatives to Evernote at the time of writing include: [Simplenote](https://simplenote.com/), and Microsoft’s [OneNote](https://www.onenote.com/). I like to avoid Microsoft wherever possible, and Simplenotes offerings were average at best, and the reviews did not help sell me on their product.

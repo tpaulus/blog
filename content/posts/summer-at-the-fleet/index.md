@@ -3,15 +3,9 @@ title: Summer at the Fleet
 slug: summer-at-the-fleet
 date: 2014-07-28T21:05:20.000Z
 lastmod: 2016-12-29T04:35:16.000Z
-draft: false
-status: published
 tag:
   - Life
 feature_image: media/2014/07/Fleet-Building.jpg
-featured: false
-ghost_id: 641e0dadc0c65700013898e3
-ghost_uuid: a53ced6f-84a2-4bd7-9353-e691bac1be37
-url: /summer-at-the-fleet/
 ---
 
 ##### _From a Camp Counselor’s Perspective._

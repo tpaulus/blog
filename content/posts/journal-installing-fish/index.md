@@ -3,15 +3,9 @@ title: Installing Fish Terminal on MacOS
 slug: journal-installing-fish
 date: 2016-09-23T20:23:00.000Z
 lastmod: 2017-03-26T00:09:58.000Z
-draft: false
-status: published
 tag:
   - Software
 feature_image: media/2016/12/FishBanner.png
-featured: false
-ghost_id: 641e0dadc0c65700013898ee
-ghost_uuid: 0aca6aa3-6317-4b47-b4ec-75b649eab8f2
-url: /journal-installing-fish/
 ---
 
 Fish is a great alternative to the default bash or shell that is installed on your computer by default, while Fish is available for a variety of platforms, even Windows (with Cygwin); but this guide will focus on macOS, because that is what I use on a daily basis. It is very easily to install, since they provide a package that you simply download and run and it installs fish to `/usr/local/bin`. However, if you are a bit more savvy and already have Homebrew installed, you can install fish with a single command in your currently very boring shell.

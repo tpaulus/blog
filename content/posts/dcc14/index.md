@@ -3,15 +3,9 @@ title: Desert Code Camp 2014.2
 slug: dcc14
 date: 2014-10-19T20:30:07.000Z
 lastmod: 2016-12-29T04:18:54.000Z
-draft: false
-status: published
 tag:
   - Events
 feature_image: media/2014/10/Bridge.jpg
-featured: false
-ghost_id: 641e0dadc0c65700013898e6
-ghost_uuid: f1e85573-fc1c-431c-99e7-2519967be5c0
-url: /dcc14/
 ---
 
 I regularly attend and present at Code Camps, which are weekend get together of hackers and programmers who want to learn or share their knowledge and skills with the community. These events are often very informative and occasionally there are some perks from the sponsors. Desert Code Camp has the best perks by far. Free Breakfast, Lunch, and Dinner for all attendees and a speaker dinner the night before; in addition to the stunning Chandler – Gilbert Community College Pecos Campus. Their signature bridge linking the Ironwood Hall and Estrella Hall attracts visitors and is one of their landmarks at the college.
