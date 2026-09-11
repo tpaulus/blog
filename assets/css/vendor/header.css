@@ -127,10 +127,6 @@
     .gh-head-brand .gh-search {
         display: none;
     }
-
-    body:not(.is-dropdown-loaded) .gh-head-menu .nav > li {
-        opacity: 0;
-    }
 }
 
 /* Header variants
