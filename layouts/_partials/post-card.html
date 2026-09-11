@@ -6,14 +6,17 @@
 <article class="post{{ if not $page.Params.feature_image }} no-image{{ end }}">
 
     {{ with partial "resolve-feature-image.html" $page }}
+    {{ $image := .Fit "640x640 webp q80" }}
     <figure class="post-media gh-canvas">
         <div class="u-placeholder horizontal kg-width-wide">
             <a class="post-image-link" href="{{ $page.RelPermalink }}" aria-hidden="true" tabindex="-1">
                 <img
                     class="post-image u-object-fit"
-                    src="{{ .RelPermalink }}"
+                    src="{{ $image.RelPermalink }}"
                     alt="{{ $page.Params.feature_image_alt | default $page.Title }}"
                     loading="lazy"
+                    width="{{ $image.Width }}"
+                    height="{{ $image.Height }}"
                 >
             </a>
         </div>

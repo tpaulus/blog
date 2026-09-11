@@ -7,12 +7,19 @@
 */}}
 {{ $page := . }}
 {{ with partial "resolve-feature-image.html" $page }}
+{{ $medium := .Fit "768x768 webp q82" }}
+{{ $large := .Fit "1440x1440 webp q82" }}
 <figure class="post-media kg-width-wide">
     <img
         class="post-image"
-        src="{{ .RelPermalink }}"
+        src="{{ $large.RelPermalink }}"
+        srcset="{{ $medium.RelPermalink }} {{ $medium.Width }}w, {{ $large.RelPermalink }} {{ $large.Width }}w"
+        sizes="(max-width: 768px) 100vw, 1440px"
         alt="{{ $page.Params.feature_image_alt | default $page.Title }}"
-        loading="lazy"
+        loading="eager"
+        fetchpriority="high"
+        width="{{ $large.Width }}"
+        height="{{ $large.Height }}"
     >
     {{ with $page.Params.feature_image_caption }}
     <figcaption>{{ . | safeHTML }}</figcaption>
