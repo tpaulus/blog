@@ -48,19 +48,19 @@ CNI (Container Network Interfaces) allow for adding custom networking interfaces
 
 This didn't work. I spent hours troubleshooting issues, ranging from `macvlan` IP address not being released, to no requests making it to/from the container at all. Some more googling showed that there were a number of open issues with CNI support and Nomad dating back to 2021 that had clearly not been fixed. While not ideal, I could work around this problem. Rather than having the containers talk to their host for DNS resolution, I deployed a container to my router that augmented a DNS Server with a Consul agent to enable the containers to get their answers that way.
 
-<figure class="kg-card kg-bookmark-card"><a class="kg-bookmark-container" href="https://github.com/tpaulus/consul-core-dns"><div class="kg-bookmark-content"><div class="kg-bookmark-title">GitHub - tpaulus/consul-core-dns: CoreDNS Container also running a Consul Agent to serve Consul DNS Requests</div><div class="kg-bookmark-description">CoreDNS Container also running a Consul Agent to serve Consul DNS Requests - GitHub - tpaulus/consul-core-dns: CoreDNS Container also running a Consul Agent to serve Consul DNS Requests</div><div class="kg-bookmark-metadata"><img class="kg-bookmark-icon" src="media/external/3a308f44abebbb79-fluidicon.png" alt=""><span class="kg-bookmark-author">GitHub</span><span class="kg-bookmark-publisher">tpaulus</span></div></div><div class="kg-bookmark-thumbnail"><img src="media/external/a1af661deba420a0-consul-core-dns.png" alt=""></div></a></figure>
+{{< github url="https://github.com/tpaulus/consul-core-dns" >}}
 
 ## Terraform for Config Management
 
 Since the goal of this project was to reduce the manual configuration, I opted to manage my Nomad Job configuration via Terraform. This not only allows my to quickly re-provision all of my jobs, it allows for automated image updates, which we will discuss in a bit.
 
-<figure class="kg-card kg-bookmark-card"><a class="kg-bookmark-container" href="https://github.com/tpaulus/terraform-hashi"><div class="kg-bookmark-content"><div class="kg-bookmark-title">GitHub - tpaulus/terraform-hashi: Hashicorp Product (Nomad, Consul, etc.) Terraform Configurations</div><div class="kg-bookmark-description">Hashicorp Product (Nomad, Consul, etc.) Terraform Configurations - GitHub - tpaulus/terraform-hashi: Hashicorp Product (Nomad, Consul, etc.) Terraform Configurations</div><div class="kg-bookmark-metadata"><img class="kg-bookmark-icon" src="media/external/3a308f44abebbb79-fluidicon.png" alt=""><span class="kg-bookmark-author">GitHub</span><span class="kg-bookmark-publisher">tpaulus</span></div></div><div class="kg-bookmark-thumbnail"><img src="media/external/9d8fa04e59c7a1a1-terraform-hashi.png" alt=""></div></a></figure>
+{{< github url="https://github.com/tpaulus/terraform-hashi" >}}
 
 ## Cloudflare Tunnels
 
 While my partner may disagree, I don't run a data center in our garage and we have a single non-static public IP address for the whole house. The solution here comes in the form of a tunnel, specifically Cloudflare Tunnels. I created a `system` job in Nomad to run a Cloudflare Tunnel on every server. This gave me 3 different tunnels, pointing to the same services. While I could use DNS round-robin to route traffic between the servers, that would cause issues if any single server went down, since 1/3 of requests would fail. Using a Cloudflare Load Balancer solves this and allows for more intelligent routing of requests. In my case, I am simply using the health-check option to conditionally send traffic to each of the servers, ensuring that only healthy servers receive requests.
 
-<figure class="kg-card kg-image-card kg-width-wide"><img src="media/2023/04/Request-HLD-2.png" class="kg-image" alt="" loading="lazy" width="882" height="422" srcset="media/size/w600/2023/04/Request-HLD-2.png 600w, media/2023/04/Request-HLD-2.png 882w"></figure>
+![](media/2023/04/Request-HLD-2.png)
 
 ## Foreshadowing
 

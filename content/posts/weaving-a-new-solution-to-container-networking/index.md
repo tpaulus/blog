@@ -84,7 +84,7 @@ I ended up overriding the default CIDR (`10.0.0/8`), as it conflicted with the p
 
 I then ran `weave expose` on each of my nodes and added the `/24` returned to my router's static routes table, with the target being the node that returned the IP block. This enabled clients not part of the weave network to be able to access weave clients. From there, I just needed to explicitly set the `network_mode` in my Nomad Job Docker Configuration and ensure that the address mode was set to driver for my service definitions.
 
-<figure class="kg-card kg-bookmark-card kg-card-hascaption"><a class="kg-bookmark-container" href="https://github.com/tpaulus/terraform-hashi/blob/main/jobs/alertmanager.hcl"><div class="kg-bookmark-content"><div class="kg-bookmark-title">terraform-hashi/alertmanager.hcl at main · tpaulus/terraform-hashi</div><div class="kg-bookmark-description">Hashicorp Product (Nomad, Consul, etc.) Terraform Configurations - terraform-hashi/alertmanager.hcl at main · tpaulus/terraform-hashi</div><div class="kg-bookmark-metadata"><img class="kg-bookmark-icon" src="media/external/3a308f44abebbb79-fluidicon.png" alt=""><span class="kg-bookmark-author">GitHub</span><span class="kg-bookmark-publisher">tpaulus</span></div></div><div class="kg-bookmark-thumbnail"><img src="media/external/9d8fa04e59c7a1a1-terraform-hashi.png" alt=""></div></a><figcaption>Example Configuration using WeaveNet</figcaption></figure>
+{{< github url="https://github.com/tpaulus/terraform-hashi/blob/main/jobs/alertmanager.hcl" caption="Example Configuration using WeaveNet" >}}
 
 ## Hey Siri
 

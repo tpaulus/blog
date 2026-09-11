@@ -16,7 +16,7 @@ url: /hello-this-is-kk7ugu/
 
 A number of weeks ago, Melinda came back from Bainbridge Island with a packet from her mother. Within it, a helpful emergency preparedness guide and an emergency contact form with a handful of cell phone numbers. This lead to a conversation between the two of us on one of our afternoon walks, how would we actually get a hold of someone if the cell-phone towers are down or congested. Having an out-0f-state contact does very little, if you cannot reach them. We had recently watched a [Geerling Engineering](https://www.youtube.com/@GeerlingEngineering) Video where Jeff and his dad got their amateur radio licenses and thought that maybe we should do the same; so that when the next disaster strikes, we can at least get a hold of one another.
 
-<figure class="kg-card kg-embed-card"><iframe width="200" height="113" src="https://www.youtube.com/embed/PIeavEhUhSw?feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="" title="It's ILLEGAL for my Dad to transmit!"></iframe></figure>
+{{< youtube id="PIeavEhUhSw" title="It's ILLEGAL for my Dad to transmit!" >}}
 
 A little bit of time searching the web landed us at [HamStudy](https://hamstudy.org). Thanks to the many years of hardware tinkering I did with my Dad in the 2010s many of the concepts were easy to understand, and after about a week of studying with HamStudy, I found myself in the bathroom taking my Technician License test.
 

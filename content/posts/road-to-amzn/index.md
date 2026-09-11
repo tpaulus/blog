@@ -17,7 +17,7 @@ url: /road-to-amzn/
 
 Unlike Mike Rowe's "Road To Coober Pedy," my trip to Seattle, Washington for my [Summer Internship with Amazon](/amzn-sde-internship/), will hopefully not be filled with death, injury, or road kill. This post will help serve as my record of the progress that I have made, and the events that have taken place, leading up to my First Day as a Software Development Engineering Intern.
 
-<iframe src="https://www.youtube-nocookie.com/embed/5mLY2lSd9ig?rel=0" frameborder="0" allowfullscreen=""></iframe>
+{{< youtube id="5mLY2lSd9ig" title="Road to Seattle video" >}}
 
 After submitting my acceptance letter, I received a "Team Preference" survey from my point of contact at Amazon in early February. Based on my start and end dates, and the areas of interest I marked on my survey, I was presented with three options, as well as a brief description of what the team does and where they are located. One of the options, and the one that I ended up marking as my first preference (and receiving) was working with Amazon Web Services' (AWS) CloudFormation team in Seattle.
 
@@ -25,7 +25,7 @@ After submitting my acceptance letter, I received a "Team Preference" survey fro
 
 I have had some experience working with AWS and its various services (namely Lightsail for WebHosting, and [Glacier for Backups](/back-up-with-glacier/)). From that, I know that AWS' many services, each of which are extremely powerful by themselves, only become more powerful when combined. However, doing this becomes increasingly difficult to do repeatedly and consistently, as the size of your infrastructure grows; and that is why CloudFormation is so cool!
 
-<iframe src="https://www.youtube-nocookie.com/embed/Omppm_YUG2g?rel=0" frameborder="0" allowfullscreen=""></iframe>
+{{< youtube id="Omppm_YUG2g" title="Road to Seattle video" >}}
 
 The real fun starts once I cross the T-60 day mark, which will happen in Mid-March. At that point, my team placement, start/end dates are set in stone, and the on-boarding process begins (Relocation, Background Check, etc.) I will be updating this post until my first day in Mid-May.
 

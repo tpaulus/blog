@@ -18,7 +18,7 @@ My partner and I got our first Electric Vehicle, a 2023 Volvo XC40 Recharge P8 l
 
 When I initially planned our trip and where we would stay along the way, I looked for hotels that featured EV Chargers, which would enable us to start the day with a full charge, reducing the amount of time we would spend at charging stations. I also used [A Better Route Planner](https://abetterrouteplanner.com) (ABRP) to plan our route and where we would need to stop and charge. Assuming everything went to plan, ABRP estimated that we would spend just over two and a half hours charging over our 1,285 mile journey, not including our overnight hotel charging sessions.
 
-<figure class="kg-card kg-image-card kg-width-wide"><img src="media/2023/07/Banff-Charging-Plan.png" class="kg-image" alt="Charging Plan listing various charging stops and distance between stops." loading="lazy" width="792" height="612" srcset="media/size/w600/2023/07/Banff-Charging-Plan.png 600w, media/2023/07/Banff-Charging-Plan.png 792w"></figure>
+![Charging Plan listing various charging stops and distance between stops.](media/2023/07/Banff-Charging-Plan.png)
 
 **Day 0 - Chilliwack**
 
@@ -42,7 +42,9 @@ After we charged up in Hope, we grabbed some lunch and continued all the way to 
 
 We hit a bit of a snag and the hotel we stayed at in downtown Vancouver only had a single charger for both of the 20+ story hotels that shared the parking garage, and we were not the lucky ones, so we started the day off with only 27% charge. ABRP actually struggled to plan a route for us, given our low state of charge and the lack of DC Fast Chargers in downtown Vancouver.
 
-<figure class="kg-card kg-image-card kg-card-hascaption"><img src="media/2023/07/image.png" class="kg-image" alt="Screenshot of Plugshare showing available, compatible DC Fast Charging stations in Vancouver, BC." loading="lazy" width="1170" height="2139" srcset="media/size/w600/2023/07/image.png 600w, media/size/w1000/2023/07/image.png 1000w, media/2023/07/image.png 1170w" sizes="(min-width: 720px) 720px"><figcaption><span>Compatible DC Fast Chargers in Vancouver, BC according to Plugshare</span></figcaption></figure>
+![Screenshot of Plugshare showing available, compatible DC Fast Charging stations in Vancouver, BC.](media/2023/07/image.png)
+
+*Compatible DC Fast Chargers in Vancouver, BC according to Plugshare*
 
 Although with some manual tinkering, I was able to get a plan together that had us top up at a Petro station and an Electrify America station once we were across the border. The plan was still somewhat risky, given both our bad experience with the Petro charger in Kamloops, and the fact that there was only a single charger at the location. We ended up getting lucky and the charger was not only available, but provided us with a speedy charge. 20-ish minutes after arriving, we were on our way back home. The rest of the drive home was uneventful, with one additional charging stop at Electrify America in Bellingham which gave us the juice we needed to make it the rest of the way home.
 

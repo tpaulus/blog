@@ -63,6 +63,10 @@ for API details.
 [^deploy-check]: The validation step runs before deployment.
 ```
 
+Use Markdown for images and a Hugo shortcode for embeds; raw HTML in posts is
+not permitted. The local-image lint rejects raw HTML outside fenced code
+blocks.
+
 To add a feature image, copy it into the same bundle and point
 `feature_image` at it. `feature_image_alt` and `feature_image_caption` are
 optional:

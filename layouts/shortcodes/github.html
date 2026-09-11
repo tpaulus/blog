@@ -1,0 +1,31 @@
+{{- $url := .Get "url" -}}
+{{- $matches := findRESubmatch `^https://github\.com/([^/]+)/([^/?#]+)` $url -}}
+{{- if not $matches -}}
+  {{- errorf "github shortcode requires a GitHub repository URL: %q" $url -}}
+{{- end -}}
+{{- $match := index $matches 0 -}}
+{{- $owner := index $match 1 -}}
+{{- $repositoryName := index $match 2 -}}
+{{- $apiURL := printf "https://api.github.com/repos/%s/%s" $owner $repositoryName -}}
+{{- $remote := try (resources.GetRemote $apiURL) -}}
+{{- with $remote.Err -}}
+  {{- errorf "github shortcode could not fetch %s: %s" $apiURL . -}}
+{{- end -}}
+{{- $repository := $remote.Value | transform.Unmarshal -}}
+<figure class="kg-card kg-bookmark-card{{ with .Get "caption" }} kg-card-hascaption{{ end }}">
+  <a class="kg-bookmark-container" href="{{ $url }}">
+    <div class="kg-bookmark-content">
+      <div class="kg-bookmark-title">{{ $repository.full_name }}</div>
+      {{- with $repository.description }}
+      <div class="kg-bookmark-description">{{ . }}</div>
+      {{- end }}
+      <div class="kg-bookmark-metadata">
+        <img class="kg-bookmark-icon" src="https://github.githubassets.com/favicons/favicon.svg" alt="">
+        <span class="kg-bookmark-author">{{ $repository.owner.login }}</span>
+        <span class="kg-bookmark-publisher">GitHub</span>
+      </div>
+    </div>
+    <div class="kg-bookmark-thumbnail"><img src="https://opengraph.githubassets.com/1/{{ $owner }}/{{ $repositoryName }}" alt=""></div>
+  </a>
+  {{- with .Get "caption" }}<figcaption>{{ . }}</figcaption>{{ end }}
+</figure>

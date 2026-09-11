@@ -34,7 +34,7 @@ Since I could not find any thermostats off the shelf that addressed all of these
 
 It had been a while since I worked on hardware, but the various GitHub repos I landed on helped me to assemble a rough bill of materials. We needed only 3 main things: an ESP32 based micro-controller, a RS485 transceiver, and an AC to DC converter. The AC to DC converter was result of the self-containment requirement as the only power source available inside the control cabinet that was not 120VAC was the 24VAC terminals (R & C) that would otherwise power a traditional thermostat. I went to school for Computer Science where we all, for the most part, gladly abstracted away the hardware our precious programs ran on to the Computer Engineering and Electrical Engineering departments in the buildings down the road. Consequently, converting between AC and DC was not something I was particularly looking forward to. I bickered with Claude for a while about this problem and ended up with a simple enough 2 stage AC to DC conversion that while not super cost effective, was simple enough for me to build and understand.
 
-<figure class="kg-card kg-image-card"><img src="media/2026/06/Schematic-1.jpg" class="kg-image" alt="Schematic" loading="lazy" width="2000" height="1410" srcset="media/size/w600/2026/06/Schematic-1.jpg 600w, media/size/w1000/2026/06/Schematic-1.jpg 1000w, media/size/w1600/2026/06/Schematic-1.jpg 1600w, media/size/w2400/2026/06/Schematic-1.jpg 2400w" sizes="(min-width: 720px) 720px"></figure>
+![Schematic](media/2026/06/Schematic-1.jpg)
 
 #### Bill of Materials
 
@@ -143,7 +143,7 @@ I went back upstairs to my desk and sent a new set of serial commands to the con
 
 My fork of the Custom Component is on GitHub for those also looking to convert their Carrier (Midea) Air Handler to direct control.
 
-<figure class="kg-card kg-bookmark-card"><a class="kg-bookmark-container" href="https://github.com/tpaulus/ESPHome-Midea-XYE"><div class="kg-bookmark-content"><div class="kg-bookmark-title">GitHub - tpaulus/ESPHome-Midea-XYE: ESPHome external component for controlling Midea HVAC systems over the XYE/CCM RS‑485 bus. Provides a native Home Assistant climate entity with full mode, fan, and setpoint support.</div><div class="kg-bookmark-description">ESPHome external component for controlling Midea HVAC systems over the XYE/CCM RS‑485 bus. Provides a native Home Assistant climate entity with full mode, fan, and setpoint support. - tpaulus/ESPHo…</div><div class="kg-bookmark-metadata"><img class="kg-bookmark-icon" src="media/icon/pinned-octocat-093da3e6fa40-1e39e716-701b-47ca-8390-df63c6100f21.svg" alt=""><span class="kg-bookmark-author">GitHub</span><span class="kg-bookmark-publisher">tpaulus</span></div></div><div class="kg-bookmark-thumbnail"><img src="media/thumbnail/ESPHome-Midea-XYE-85c1302c-60fe-4d01-a441-6533ea699158" alt="" onerror="this.style.display = 'none'"></div></a></figure>
+{{< github url="https://github.com/tpaulus/ESPHome-Midea-XYE" >}}
 
 ### Keeping it dumb
 

@@ -22,6 +22,11 @@ function isExternal(value) {
   return /^(?:https?:)?\/\//i.test(value);
 }
 
+function isApprovedExternalImage(value) {
+  return value === 'https://github.githubassets.com/favicons/favicon.svg'
+    || /^https:\/\/opengraph\.githubassets\.com\/[^/]+\/[^/]+\/[^/]+$/.test(value);
+}
+
 function localPath(value, baseDirectory, root, location) {
   const source = String(value ?? '').trim();
   if (!source) fail(`${location} has an empty image URL`);
@@ -72,6 +77,21 @@ function markdownImageSources(source) {
   return [...source.matchAll(/!\[[^\]]*]\(\s*(?:<([^>]+)>|([^\s)]+))/g)].map((match) => match[1] ?? match[2]);
 }
 
+function rawHtmlLines(source) {
+  const lines = [];
+  let fence;
+  for (const [index, line] of source.split(/\r?\n/).entries()) {
+    const marker = line.match(/^\s*(`{3,}|~{3,})/);
+    if (marker) {
+      if (!fence) fence = marker[1][0];
+      else if (marker[1][0] === fence) fence = undefined;
+      continue;
+    }
+    if (!fence && /<\/?[a-z][^>]*>/i.test(line)) lines.push(index + 1);
+  }
+  return lines;
+}
+
 function frontMatter(source, file) {
   const match = source.match(/^---\r?\n([\s\S]*?)\r?\n---(?:\r?\n|$)/);
   if (!match) fail(`${file} has no YAML front matter`);
@@ -98,6 +118,10 @@ export function lintContent({ root = process.cwd(), contentDirectory = path.join
 
     const location = path.relative(root, file);
     const bundle = path.dirname(file);
+    const htmlLines = rawHtmlLines(source);
+    if (htmlLines.length) {
+      fail(`${location} contains raw HTML on line(s) ${htmlLines.join(', ')}; use Markdown or a Hugo shortcode instead`);
+    }
     if (metadata.feature_image !== undefined) {
       localPath(metadata.feature_image, bundle, root, `${location} feature_image`);
     }
@@ -122,7 +146,10 @@ export function lintPublic({ root = process.cwd(), publicDirectory = path.join(r
     for (const image of htmlImageSources(source)) {
       const url = String(image).trim();
       if (!url) fail(`${location} has an empty image URL`);
-      if (isExternal(url)) fail(`${location} has an external image URL: ${url}`);
+      if (isExternal(url)) {
+        if (isApprovedExternalImage(url)) continue;
+        fail(`${location} has an external image URL: ${url}`);
+      }
       if (/^[a-z][a-z0-9+.-]*:/i.test(url)) fail(`${location} has a non-local image URL: ${url}`);
       const pathname = url.split(/[?#]/, 1)[0];
       let decoded;

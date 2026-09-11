@@ -25,7 +25,7 @@ Programming the ESP8266 with the Arduino software is relatively straightforward 
 
 Allowing the lights to be controlled from anywhere, not just inside of your home network,  presents another fun, but easily solved challenge. All of this is done in your router's settings (typically found in the Advanced Section). First we will want to assign a static IP to the HUZZAH to allow ensure that the device's internal IP remains the same. Next, you will want to set up Port Forwarding to allow the outside world to talk to your device.
 
-<figure class="kg-card kg-image-card"><img src="media/2018/07/image.png" class="kg-image" alt="" loading="lazy"></figure>
+![](media/2018/07/image.png)
 
 > **Note:** Most ISPs block common ports like 80, 443, 8080, so some trial and error may be necessary to find an open port that will work for you. Any open port will suffice. Most routers allow you to map a different external and internal port, which allows us to run the HUZZAH on port 80 for convenience.
 
@@ -33,21 +33,23 @@ Finally, since most ISPs use DHCP themselves to assign your home an IP address, 
 
 You can test out your configuration using an HTTP request tool like [Postman](https://www.getpostman.com/), but that's not very convenient. That's where we can use a service like IFTTT to make our life easier. By combining the button trigger and the Webhook service we can use a widget in the iOS notification center to trigger the light in a matter of seconds.
 
-<figure class="kg-card kg-image-card kg-card-hascaption"><img src="media/2018/07/image-1.png" class="kg-image" alt="" loading="lazy"><figcaption>IFTTT Widget Settings</figcaption></figure>
+![IFTTT Widget Settings](media/2018/07/image-1.png)
+
+*IFTTT Widget Settings*
 
 You can then add the IFTTT Widget to your Today View to access the animation controls quickly and easily.
 
-<figure class="kg-card kg-image-card"><img src="media/2018/07/IMG_932348607773-1.jpeg" class="kg-image" alt="" loading="lazy"></figure>
+![](media/2018/07/IMG_932348607773-1.jpeg)
 
 ## Hardware
 
 The project is pretty simple from a hardware perspective, with a short bill of materials, especially if you have some of the tools already lying around.
 
-<figure class="kg-card kg-image-card"><img src="media/2018/08/wiring_diagram.png" class="kg-image" alt="" loading="lazy"></figure>
+![](media/2018/08/wiring_diagram.png)
 
 The capacitor is optional and provides some power smoothing, which is especially useful for very flashy (high current draw) animations like the pulse. When things are all set and done, mount the board and leds how you see fit, Hot Glue is one of my go to favorites for things like this.
 
-<figure class="kg-card kg-image-card"><img src="media/2018/08/IMG_0847-3.jpg" class="kg-image" alt="" loading="lazy"></figure>
+![](media/2018/08/IMG_0847-3.jpg)
 
 ### Bill of Materials
 

@@ -16,15 +16,17 @@
     width: 100%;
 }
 
-.kg-bookmark-container {
+.gh-content .kg-bookmark-card a.kg-bookmark-container,
+.gh-content .kg-bookmark-card a.kg-bookmark-container:visited,
+.gh-content .kg-bookmark-card a.kg-bookmark-container:hover,
+.gh-content .kg-bookmark-card a.kg-bookmark-container:focus-visible {
     display: flex;
     min-height: 148px;
     overflow: hidden;
     color: currentColor;
     text-decoration: none;
-    border: 1px solid var(--color-light-gray, #e6e6e6);
+    border: 1px solid rgb(124 139 154 / 25%);
     border-radius: 6px;
-    box-shadow: var(--shadow-base, 0 2px 5px -1px rgba(0, 0, 0, 0.15));
 }
 
 .kg-bookmark-content {
