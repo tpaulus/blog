@@ -3,15 +3,9 @@ title: Backing up Unifi Protect
 slug: backing-up-unifi-protect
 date: 2023-05-24T01:16:32.000Z
 lastmod: 2026-05-10T02:20:32.000Z
-draft: false
-status: published
 tag:
   - Software
 feature_image: media/external/200d5800a49d4203-photo-1662186554373-ec885565963d.jpg
-featured: false
-ghost_id: 641e0dadc0c65700013898f7
-ghost_uuid: bf31025c-0bce-4870-a2ae-19cd84ba1ced
-url: /backing-up-unifi-protect/
 ---
 
 A few weeks ago, I was scrolling through the [r/Ubiquiti Subreddit](https://www.reddit.com/r/Ubiquiti/) when I came across a post where someone had their NVR stolen during a break in. We have a number of Protect cameras across the house and the post got me thinking... I have offsite backups of data stored on the NAS, but not the NVR. A lot of the recordings are useless, but it would be really nice to have the events stored offsite for a few days, just in case.

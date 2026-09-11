@@ -3,15 +3,9 @@ title: I'm going to SDSU this Fall!
 slug: sir-sdsu
 date: 2015-04-17T23:03:01.000Z
 lastmod: 2018-03-17T03:10:37.000Z
-draft: false
-status: published
 tag:
   - Life
 feature_image: media/2015/04/SDSU-Campus.jpg
-featured: false
-ghost_id: 641e0dadc0c65700013898e9
-ghost_uuid: bdfe6b17-6ba5-43f1-9779-aa8793a1f764
-url: /sir-sdsu/
 ---
 
 It’s been a long road to get to this point, hundreds of tests, an ungodly number of quizzes and probably killing a tree, maybe a tree and a half [\[1\]](http://www.infoplease.com/askeds/much-paper-one-tree.html). I applied to 11 schools in the fall and got accepted into 7 of them, including schools like UC Irvine, UC Riverside, and San Diego State University. I mention those schools specifically, because those where the schools that I visited, along with my Mom and Dad. It came down to UC Irvine and SDSU.

@@ -3,14 +3,8 @@ title: IP Display
 slug: ipdisplay
 date: 2013-11-08T17:30:33.000Z
 lastmod: 2026-05-13T20:42:26.000Z
-draft: false
-status: published
 tag: []
 feature_image: media/2013/11/MyLocalIpAddress.png
-featured: false
-ghost_id: 641e0dadc0c65700013898e1
-ghost_uuid: ba091b64-a590-4d84-8a95-61a554cbf9ef
-url: /ipdisplay/
 ---
 
 In preparation for [Socal Code Camp](http://www.socalcodecamp.com/), [Getting Started with Raspberry Pi](https://tompaulus.com/talks/) I developed a little app to tell me the IP of my Pi.

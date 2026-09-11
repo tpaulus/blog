@@ -3,18 +3,12 @@ title: Replacing PiHole with Cloudflare Gateway
 slug: replacing-pihole-with-cloudflare-gateway
 date: 2022-10-30T23:05:01.000Z
 lastmod: 2022-10-30T23:05:01.000Z
-draft: false
-status: published
 tag:
   - Software
 description: I've been using PiHole for my home-network DNS for years, but
   Cloudflare Teams Gateway has enabled me to improve my DNS availability at
   home, and take it with me, on the go.
 feature_image: media/external/41e26ad49afd5e0d-photo-1518276722293-31849d97dd9c.jpg
-featured: false
-ghost_id: 641e0dadc0c65700013898f6
-ghost_uuid: 9a583368-7638-4077-9eb4-1616afca224a
-url: /replacing-pihole-with-cloudflare-gateway/
 ---
 
 Before I can dive into how I configured Cloudflare Teams Gateway to work for my home, I need to give a bit of context and what lead up to this. I began using PiHole a number of years ago, running on a Raspberry Pi Model 1B. That worked fine for a while until my partner moved-in. She would report that the internet would occasionally stop working for her, and most of the time, this turned out to be a DNS issue. Combined with the occasional hick-ups caused by running on an older, low-power SBC, the need for occasional reboots to install updates meant that it was time to setup a second PiHole to run along side the first. Those Raspberry Pis were eventually replaced with Docker Containers running on much beefier machines, but the occasional outages persisted. Either due to _fun_ intricacies of `macvlan` which is how the Docker Containers get their IPs on the network, or an over aggressive block list, it lead to both of us turning off WiFi when a page wouldn't load. Don't get me wrong, I love hosting my own infrastructure for all the things we need at home, but DNS is a fickle thing and issues with DNS can manifest themselves in the most peculiar, unsuspecting ways.

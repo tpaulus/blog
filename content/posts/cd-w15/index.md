@@ -3,16 +3,10 @@ title: Eat, Drink, Hack - 24 Hours at CodeDay (Winter 2015)
 slug: cd-w15
 date: 2015-04-12T15:42:22.000Z
 lastmod: 2016-12-29T04:09:55.000Z
-draft: false
-status: published
 tag:
   - Events
   - CodeDay
 feature_image: media/2015/04/CDSD2015_3.jpg
-featured: false
-ghost_id: 641e0dadc0c65700013898e8
-ghost_uuid: 6610a967-bb41-475f-bcb7-b62f5ac022c1
-url: /cd-w15/
 ---
 
 Would you like to learn how to make your own, super cool website? Or challenge your brain with a math puzzle? These were only two of the over 15 apps made by attendees at CodeDay.

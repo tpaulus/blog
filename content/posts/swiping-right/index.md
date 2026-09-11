@@ -3,15 +3,9 @@ title: Swiping Right
 slug: swiping-right
 date: 2026-06-08T16:10:19.000Z
 lastmod: 2026-06-08T16:10:19.000Z
-draft: false
-status: published
 tag:
   - Life
 feature_image: media/external/448c3629860a8ca3-photo-1757301714935-c8127a21abc6.jpg
-featured: false
-ghost_id: 69ff68ab17c053000100ca79
-ghost_uuid: 98952d30-70d2-41ed-bdb4-c0dbdf72ab55
-url: /swiping-right/
 ---
 
 It feels like far less than 4 years ago that I was writing my last [blog post](/leaving-amazon/) on changing jobs when I went from one orange logo to another. A lot has changed in the four years since I joined Cloudflare - the rise of generative AI has been the biggest by far. While my time at Cloudflare has been rewarding, it's time for a change. In a couple of week's I will be starting my new role as a Senior Software Engineer at [Stripe](https://stripe.com/) on their [Usage Based Billing](https://stripe.com/billing/usage-based-billing) (UBB) team, working out of their Seattle office.

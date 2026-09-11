@@ -3,15 +3,9 @@ title: Tools I Use For My Day Job
 slug: tools-i-use-for-my-day-job
 date: 2026-06-15T15:58:34.000Z
 lastmod: 2026-06-21T21:37:09.000Z
-draft: false
-status: published
 tag: []
 feature_image: media/external/1a3e543679c8d042-photo-1703113691198-98eba6655b1a.jpg
-featured: false
-ghost_id: 6a04c33717c053000100cb10
-ghost_uuid: 1d0f1dae-9c57-4676-8e54-8a54d628e27b
 layout: custom-narrow-feature-image
-url: /tools-i-use-for-my-day-job/
 ---
 
 Given that I'm starting a new role soon, I used this as an opportunity to document the transferable applications and configurations I like to use on my primary work machine.

@@ -3,16 +3,10 @@ title: CodeDay - Fall 2014
 slug: codeday-fall-2014
 date: 2014-11-11T15:00:13.000Z
 lastmod: 2016-12-29T04:15:33.000Z
-draft: false
-status: published
 tag:
   - Events
   - CodeDay
 feature_image: media/2014/11/untitled-65.jpg
-featured: false
-ghost_id: 641e0dadc0c65700013898e7
-ghost_uuid: cbfa446b-a34a-4f54-be53-c0208b2aa4e3
-url: /codeday-fall-2014/
 ---
 
 CodeDay is a 24-hour programing marathon for Middle School through College students. It is hosted 3 times a year – Fall, Winter, and Spring. The dates are set to fit with the 3-day weekends, because this is a very tiring event. This time, CodeDay San Diego was hosted at the [Ansir Innovation Center](http://ansirsd.com "Ansir Website"). ![Empty Room](media/2014/11/IMG_20141108_105757.jpg)_The Ansir Innovation center is a Co-Working Space located in Kearny Mesa. They were one of a very small group that would let us host this event for 24-hours in their space._

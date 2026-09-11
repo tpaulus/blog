@@ -3,8 +3,6 @@ title: Daily White Card
 slug: daily-white-card
 date: 2017-09-11T05:53:50.000Z
 lastmod: 2017-09-11T06:01:58.000Z
-draft: false
-status: published
 tag:
   - Software
 description: Using Cards Against Humanity's (CAH) White Cards to create a unique
@@ -12,10 +10,6 @@ description: Using Cards Against Humanity's (CAH) White Cards to create a unique
   nature of CAH to create a bot that posts daily White Card Challanges to the
   Staff of Maya & Olmeca.
 feature_image: media/2017/09/Cards_Against_Humanity_-15711676205-.jpg
-featured: false
-ghost_id: 641e0dadc0c65700013898f2
-ghost_uuid: 02b93f65-5791-4c18-b242-620844894713
-url: /daily-white-card/
 ---
 
 [Cards Against Humanity](https://cardsagainsthumanity.com/) is a College Favorite and often leads to some wonderful, even though somewhat disturbing, conversation. Through a strange series of events, a few of the staff of Maya Olmeca at the Front Desk ended up talking about the various White Cards[^1] and how some of them would be quite funny to see in real life, like "Vigiorius Jazz Hands".

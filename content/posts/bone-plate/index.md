@@ -3,15 +3,9 @@ title: Bone Plate
 slug: bone-plate
 date: 2014-08-06T00:00:41.000Z
 lastmod: 2016-12-29T04:31:45.000Z
-draft: false
-status: published
 tag:
   - Drones
 feature_image: media/2014/07/IMG_20140804_132713.jpg
-featured: false
-ghost_id: 641e0dadc0c65700013898e4
-ghost_uuid: 6f815000-cabc-47b8-a42d-aa763fd8a39e
-url: /bone-plate/
 ---
 
 Perfect for mounting your [ArduPilot](http://3drobotics.com/ "3D Robotics Website") (Both Mega and PixHawk) or any other large size flight Controller. The [BatBone](http://store.flitetest.com/bat-bone-tri-370-kit/ "Bat Bone Tri 370 Kit") comes with mounting holes for the standard 45mm size Flight Controllers, Like Hobbyking’s KK2 series boards, but it lacks the ability to mount larger flight controllers easily.

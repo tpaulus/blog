@@ -3,16 +3,10 @@ title: Summer Internship - Amazon SDE
 slug: amzn-sde-internship
 date: 2017-01-30T19:30:00.000Z
 lastmod: 2018-01-07T22:35:31.000Z
-draft: false
-status: published
 tag:
   - Life
   - Internship
 feature_image: media/2017/01/InternBanner-1.png
-featured: false
-ghost_id: 641e0dadc0c65700013898f0
-ghost_uuid: 03767462-9a94-4421-8a76-b03835058002
-url: /amzn-sde-internship/
 ---
 
 After applying to 10 odd major tech companies over winter break; Google and Amazon reached out to me and asked me to complete some "homework"[^1]. Google was first to show interest, having me complete two problems, which I completed to their satisfaction, and a short while later I received a request for availability in regard to scheduling a phone interview time. Since this was over the holidays, things were a little dragged out, but I completed my two ~1-hour phone interviews in early January. At around the same time, Amazon reached out and asked me to complete some of their problems as well.

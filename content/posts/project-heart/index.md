@@ -3,16 +3,10 @@ title: Project Heart
 slug: project-heart
 date: 2018-08-04T02:35:57.000Z
 lastmod: 2026-05-10T02:20:59.000Z
-draft: false
-status: published
 tag:
   - Software
   - Life
 feature_image: media/2018/08/IMG_0845-1.jpg
-featured: false
-ghost_id: 641e0dadc0c65700013898f3
-ghost_uuid: c1550474-e750-496c-bd04-3e799a88cb03
-url: /project-heart/
 ---
 
 Long Distance Relationships are tough, there is no denying that. But this isn't a post about the woes of love, rather a little project to help bridge the distance. Project Heart is a light that is controlled by your partner, regardless of where they are in the world, as long as they have an internet connection, they can light up your light.

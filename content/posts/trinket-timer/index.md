@@ -3,15 +3,9 @@ title: Trinket Timer
 slug: trinket-timer
 date: 2014-08-25T07:15:15.000Z
 lastmod: 2016-12-29T04:27:39.000Z
-draft: false
-status: published
 tag:
   - Software
 feature_image: media/2014/08/IMG_20140824_154825.jpg
-featured: false
-ghost_id: 641e0dadc0c65700013898e5
-ghost_uuid: aabb8ce1-a6b7-4092-ab2b-7854c4bc5721
-url: /trinket-timer/
 ---
 
 On my last school free Sunday afternoon of the summer, I built a little project to help my Frugal Father. ![DJI Timer](media/2014/08/DJI-Timer.jpg)  

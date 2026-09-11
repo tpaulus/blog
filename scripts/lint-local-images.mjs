@@ -100,10 +100,6 @@ function frontMatter(source, file) {
   return parsed;
 }
 
-function isRenderablePage(metadata) {
-  return metadata.build?.render !== 'never';
-}
-
 export function lintContent({ root = process.cwd(), contentDirectory = path.join(root, 'content') } = {}) {
   if (fs.existsSync(path.join(contentDirectory, 'site-assets'))) {
     fail(`${path.relative(root, contentDirectory) || 'content'}/site-assets must not exist; global assets belong in static/site-assets`);
@@ -112,9 +108,6 @@ export function lintContent({ root = process.cwd(), contentDirectory = path.join
   for (const file of bundles) {
     const source = fs.readFileSync(file, 'utf8');
     const metadata = frontMatter(source, file);
-    if (isRenderablePage(metadata) && (typeof metadata.url !== 'string' || !metadata.url.trim())) {
-      fail(`${file} has no nonempty url front matter`);
-    }
 
     const location = path.relative(root, file);
     const bundle = path.dirname(file);
