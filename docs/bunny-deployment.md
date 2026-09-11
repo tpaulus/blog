@@ -116,6 +116,11 @@ Published post paths are served directly by Hugo at their existing
 `/<slug>/` URLs. Do not add broad compatibility rules for legacy Ghost image,
 author, or search routes.
 
+If a deployment verifies every file but the public hostname still returns
+`/assets/built/...` files, the hostname is still routed to the Ghost origin.
+Confirm the Pull Zone uses the logged Storage Zone and the same prefix as
+`BUNNY_DEPLOY_PREFIX`, then purge the Pull Zone cache.
+
 ### Caching
 
 Use short cache lifetimes for mutable documents:
@@ -126,7 +131,9 @@ Use short cache lifetimes for mutable documents:
 - Stable bundle media assets (for example, `/<slug>/media/hero.jpg`): one
   month or longer.
 
-The final Pull Zone purge makes a successful deployment visible promptly.
+The final Pull Zone purge makes HTML and other mutable output visible promptly.
+Fingerprinting gives CSS and JavaScript a new URL whenever their contents
+change, so browser caches cannot retain an older site asset.
 
 ## Staging and rollback
 

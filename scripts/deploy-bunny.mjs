@@ -424,6 +424,9 @@ async function main() {
     run("npm", ["run", "build"]);
   }
 
+  console.log(
+    `Deploying to Bunny Storage endpoint=${endpoint}, zone=${storageZone}, prefix=/${prefix ?? ""}`,
+  );
   await deploy({
     sourceRoot: path.resolve(options.source),
     base: remoteBase(endpoint, storageZone, prefix),

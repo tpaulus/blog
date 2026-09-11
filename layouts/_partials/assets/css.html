@@ -2,12 +2,8 @@
   Builds the site's single compiled stylesheet from ported Alto/Ghost
   source CSS (see assets/css/vendor and assets/css/alto) plus this port's
   kg-* content card styling, the search modal's styling (css/search-modal.css),
-  and the generated Chroma syntax-highlight theme.
-
-  The bundle is minified but intentionally left unfingerprinted: keeping a
-  stable "/css/screen.css" URL keeps the asset pipeline simple, and the
-  deploy process (see scripts/deploy-bunny.mjs) purges the CDN cache on
-  every deploy instead of relying on a content-hashed filename.
+  and the generated Chroma syntax-highlight theme. The minified output is
+  fingerprinted so clients cannot retain stale styling across deployments.
 */}}
 {{ $files := slice
   "css/vendor/vars.css"
@@ -39,5 +35,5 @@
 {{ range $files }}
   {{ $resources = $resources | append (resources.Get .) }}
 {{ end }}
-{{ $css := $resources | resources.Concat "css/screen.css" | minify }}
+{{ $css := $resources | resources.Concat "css/screen.css" | minify | fingerprint }}
 {{ return $css }}
