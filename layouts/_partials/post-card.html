@@ -6,17 +6,26 @@
 <article class="post{{ if not $page.Params.feature_image }} no-image{{ end }}">
 
     {{ with partial "resolve-feature-image.html" $page }}
-    {{ $image := .Fit "640x640 webp q80" }}
+    {{ $small := .Fit "640x640 webp q80" }}
+    {{ $medium := .Fit "960x960 webp q82" }}
+    {{ $large := .Fit "1440x1440 webp q84" }}
+    {{ $retina := .Fit "1920x1920 webp q85" }}
+    {{ $srcset := slice (printf "%s %dw" $small.RelPermalink $small.Width) }}
+    {{ if gt $medium.Width $small.Width }}{{ $srcset = $srcset | append (printf "%s %dw" $medium.RelPermalink $medium.Width) }}{{ end }}
+    {{ if gt $large.Width $medium.Width }}{{ $srcset = $srcset | append (printf "%s %dw" $large.RelPermalink $large.Width) }}{{ end }}
+    {{ if gt $retina.Width $large.Width }}{{ $srcset = $srcset | append (printf "%s %dw" $retina.RelPermalink $retina.Width) }}{{ end }}
     <figure class="post-media gh-canvas">
         <div class="u-placeholder horizontal kg-width-wide">
             <a class="post-image-link" href="{{ $page.RelPermalink }}" aria-hidden="true" tabindex="-1">
                 <img
                     class="post-image u-object-fit"
-                    src="{{ $image.RelPermalink }}"
+                    src="{{ $large.RelPermalink }}"
+                    srcset="{{ delimit $srcset ", " }}"
+                    sizes="(max-width: 1000px) 100vw, 960px"
                     alt="{{ $page.Params.feature_image_alt | default $page.Title }}"
                     loading="lazy"
-                    width="{{ $image.Width }}"
-                    height="{{ $image.Height }}"
+                    width="{{ $retina.Width }}"
+                    height="{{ $retina.Height }}"
                 >
             </a>
         </div>

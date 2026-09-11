@@ -9,17 +9,21 @@
 {{ with partial "resolve-feature-image.html" $page }}
 {{ $medium := .Fit "768x768 webp q82" }}
 {{ $large := .Fit "1440x1440 webp q82" }}
+{{ $retina := .Fit "1920x1920 webp q85" }}
+{{ $srcset := slice (printf "%s %dw" $medium.RelPermalink $medium.Width) }}
+{{ if gt $large.Width $medium.Width }}{{ $srcset = $srcset | append (printf "%s %dw" $large.RelPermalink $large.Width) }}{{ end }}
+{{ if gt $retina.Width $large.Width }}{{ $srcset = $srcset | append (printf "%s %dw" $retina.RelPermalink $retina.Width) }}{{ end }}
 <figure class="post-media kg-width-wide">
     <img
         class="post-image"
-        src="{{ $large.RelPermalink }}"
-        srcset="{{ $medium.RelPermalink }} {{ $medium.Width }}w, {{ $large.RelPermalink }} {{ $large.Width }}w"
-        sizes="(max-width: 768px) 100vw, 1440px"
+        src="{{ $retina.RelPermalink }}"
+        srcset="{{ delimit $srcset ", " }}"
+        sizes="(max-width: 768px) 100vw, 960px"
         alt="{{ $page.Params.feature_image_alt | default $page.Title }}"
         loading="eager"
         fetchpriority="high"
-        width="{{ $large.Width }}"
-        height="{{ $large.Height }}"
+        width="{{ $retina.Width }}"
+        height="{{ $retina.Height }}"
     >
     {{ with $page.Params.feature_image_caption }}
     <figcaption>{{ . | safeHTML }}</figcaption>

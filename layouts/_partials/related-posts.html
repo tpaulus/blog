@@ -33,8 +33,13 @@
             <figure class="post-media">
                 <div class="u-placeholder rectangle">
                     <a class="post-image-link" href="{{ $related.RelPermalink }}" aria-hidden="true" tabindex="-1">
-                        {{ $image := .Fit "640x640 webp q80" }}
-                        <img class="post-image u-object-fit" src="{{ $image.RelPermalink }}" alt="{{ $related.Params.feature_image_alt | default $related.Title }}" loading="lazy" width="{{ $image.Width }}" height="{{ $image.Height }}">
+                        {{ $small := .Fit "320x320 webp q80" }}
+                        {{ $medium := .Fit "640x640 webp q82" }}
+                        {{ $retina := .Fit "960x960 webp q84" }}
+                        {{ $srcset := slice (printf "%s %dw" $small.RelPermalink $small.Width) }}
+                        {{ if gt $medium.Width $small.Width }}{{ $srcset = $srcset | append (printf "%s %dw" $medium.RelPermalink $medium.Width) }}{{ end }}
+                        {{ if gt $retina.Width $medium.Width }}{{ $srcset = $srcset | append (printf "%s %dw" $retina.RelPermalink $retina.Width) }}{{ end }}
+                        <img class="post-image u-object-fit" src="{{ $medium.RelPermalink }}" srcset="{{ delimit $srcset ", " }}" sizes="(max-width: 767px) 100vw, 320px" alt="{{ $related.Params.feature_image_alt | default $related.Title }}" loading="lazy" width="{{ $retina.Width }}" height="{{ $retina.Height }}">
                     </a>
                 </div>
             </figure>
