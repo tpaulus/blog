@@ -12,7 +12,7 @@
         "/^\\.hugo-version$/"
       ],
       "matchStrings": [
-        "^(?<currentValue>\\d+\\.\\d+\\.\\d+)$"
+        "^(?<currentValue>\\d+\\.\\d+\\.\\d+)\\s*$"
       ],
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "gohugoio/hugo"
