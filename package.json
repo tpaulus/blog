@@ -18,6 +18,6 @@
   },
   "dependencies": {
     "pagefind": "1.5.2",
-    "yaml": "2.9.0"
+    "yaml": "2.9.1"
   }
 }
