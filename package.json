@@ -11,8 +11,11 @@
     "dev": "npm run fetch:feature-images && hugo server --buildDrafts",
     "lint": "npm run fetch:feature-images && node scripts/lint-local-images.mjs",
     "build:hugo": "npm run fetch:feature-images && hugo --minify --panicOnWarning --cleanDestinationDir",
+    "build:hugo:development": "npm run fetch:feature-images && hugo --config hugo.toml,hugo.development.toml --minify --panicOnWarning --cleanDestinationDir --destination public-development",
     "build:search": "pagefind --site public",
+    "build:search:development": "pagefind --site public-development",
     "build": "npm run build:hugo && node scripts/lint-local-images.mjs && npm run build:search",
+    "build:development": "npm run build:hugo:development && PUBLIC_DIRECTORY=public-development node scripts/lint-local-images.mjs && npm run build:search:development",
     "test": "node --test && npm run build",
     "deploy": "node scripts/deploy-bunny.mjs"
   },

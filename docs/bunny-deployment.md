@@ -78,39 +78,58 @@ node scripts/deploy-bunny.mjs --skip-purge
 A dry run still needs Storage credentials because it reads the existing
 manifest. `--skip-purge` changes only the final purge step.
 
-## GitHub Actions production environment
+## GitHub Actions environments
 
 The workflow checks pull requests and pushes to `main`. Only a successful push
-to `main` deploys, using the protected GitHub Actions environment named
-`production`; pull requests never deploy.
+to `main` deploys; pull requests never deploy. It produces two validated
+artifacts:
 
-Create `production` in **Settings → Environments**, configure reviewers and
-deployment protection rules, and expose these environment secrets:
+- `production-site` contains only published content for `blog.tompaulus.com`.
+- `development-site` contains published content and Hugo drafts for
+  `dev.blog.tompaulus.com`. It has a development-specific canonical URL,
+  `noindex, nofollow` HTML metadata, and a disallow-all `robots.txt`.
+
+Create protected `production` and `development` environments in
+**Settings → Environments**, configure reviewers and deployment protection
+rules, and expose these secrets in *each* environment:
 
 | Secret | Required | Purpose |
 | --- | --- | --- |
 | `BUNNY_STORAGE_ZONE` | Yes | Storage Zone name. |
 | `BUNNY_STORAGE_PASSWORD` | Yes | Storage Zone password for the Storage API. |
 | `BUNNY_STORAGE_ENDPOINT` | No | Regional Storage API host. |
-| `BUNNY_DEPLOY_PREFIX` | No | Optional live directory; leave empty for the zone root. |
+| `BUNNY_DEPLOY_PREFIX` | No | Optional live directory; leave empty for the zone root. The development value must be distinct from production when both use the same Storage Zone. |
 | `BUNNY_DEPLOY_CONCURRENCY` | No | Upload concurrency from 1 to 32. |
 | `BUNNY_PULL_ZONE_ID` | Yes | Pull Zone to purge after deployment. |
 | `BUNNY_API_KEY` | Yes | Bunny Core API authentication for cache purging. |
 
-The workflow downloads the built `public/` artifact and runs:
+The production job downloads `production-site` and runs:
 
 ```text
 npm run deploy -- --skip-build --source public
 ```
 
+The development job downloads `development-site` and runs:
+
+```text
+npm run deploy -- --skip-build --source public-development
+```
+
 ## Pull Zone configuration
 
-1. Connect the Pull Zone to the Storage Zone and configure its origin for the
-   same directory used by `BUNNY_DEPLOY_PREFIX` (or the Storage Zone root).
-2. Add `blog.tompaulus.com` as a custom hostname, point its DNS CNAME to the
-   Pull Zone hostname, and enable Bunny-managed TLS.
-3. Enforce HTTPS for the custom hostname in Bunny. Hugo serves the feed
+1. Configure separate production and development Pull Zones. Connect each to
+   its Storage Zone and origin directory matching that environment's
+   `BUNNY_DEPLOY_PREFIX` (or its Storage Zone root).
+2. Add `blog.tompaulus.com` to the production Pull Zone and
+   `dev.blog.tompaulus.com` to the development Pull Zone. Point each DNS CNAME
+   to its corresponding Pull Zone hostname and enable Bunny-managed TLS.
+3. Enforce HTTPS for both custom hostnames in Bunny. Hugo serves the feed
    directly at `/rss.xml`; no Edge Rules are required.
+
+Never configure the development and production Pull Zones with the same Storage
+Zone directory. The deployment manifest governs stale-file removal within that
+directory, so sharing it would allow one site deployment to remove the other's
+files.
 
 Published post paths are served directly by Hugo at their existing
 `/<slug>/` URLs. Do not add broad compatibility rules for legacy Ghost image,

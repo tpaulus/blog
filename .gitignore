@@ -1,6 +1,7 @@
 .DS_Store
 # Hugo and Pagefind output
 /public/
+/public-development/
 /resources/_gen/
 /.hugo_build.lock
 # Node dependencies and logs
