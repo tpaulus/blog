@@ -11,6 +11,9 @@
 {{- with (.Params.description | default .Site.Params.description) }}
 <meta name="description" content="{{ . }}">
 {{- end }}
+{{- if .Site.Params.noindex }}
+<meta name="robots" content="noindex, nofollow">
+{{- end }}
 <link rel="canonical" href="{{ .Permalink }}">
 
 {{- with .Site.Params.icon }}

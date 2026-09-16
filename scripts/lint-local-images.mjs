@@ -185,6 +185,6 @@ export function lintLocalImages(options = {}) {
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) {
-  const result = lintLocalImages();
+  const result = lintLocalImages({ publicDirectory: process.env.PUBLIC_DIRECTORY });
   console.log(`Local image lint passed: ${result.bundles} content bundles, ${result.pages} rendered pages.`);
 }

@@ -1,4 +1,7 @@
 User-agent: *
+{{- if .Site.Params.noindex }}
+Disallow: /
+{{- else }}
 Allow: /
 
 User-agent: Amazonbot
@@ -19,4 +22,5 @@ Disallow: /
 User-agent: GPTBot
 Disallow: /
 
-Sitemap: https://blog.tompaulus.com/sitemap.xml
+Sitemap: {{ "sitemap.xml" | absURL }}
+{{- end }}

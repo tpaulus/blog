@@ -135,15 +135,21 @@ re-uploading a previous `public/` artifact.
 
 ## GitHub Actions
 
-`.github/workflows/deploy-bunny.yml` runs local-image linting and the production
-build (including the Pagefind index) for pull requests to `main` and pushes to
-`main`. Only a successful push to `main` can deploy. That job uses the protected
-`production` environment, downloads the validated build artifact, and directly
-syncs that exact artifact to Bunny.
-The protected environment needs the Storage secrets plus
-`BUNNY_PULL_ZONE_ID` and `BUNNY_API_KEY` for the final cache purge. Configure
-these and the environment protection rules described in
-[the deployment guide](docs/bunny-deployment.md).
+`.github/workflows/deploy-bunny.yml` runs local-image linting plus production
+and development builds (including Pagefind indexes) for pull requests to `main`
+and pushes to `main`. Only a successful push to `main` deploys. It downloads
+the validated artifacts and directly syncs them through separate protected
+GitHub environments:
+
+- `production` publishes the normal site to `blog.tompaulus.com`.
+- `development` publishes a draft-inclusive, noindex site to
+  `dev.blog.tompaulus.com`.
+
+Each environment needs its own Storage secrets plus `BUNNY_PULL_ZONE_ID` and
+`BUNNY_API_KEY` for the final cache purge. The development environment must use
+a separate Bunny Pull Zone and either a separate Storage Zone or a distinct
+`BUNNY_DEPLOY_PREFIX`. Configure the matching Bunny hostnames, origins, secrets,
+and environment protection rules described in [the deployment guide](docs/bunny-deployment.md).
 
 ## Documentation
 

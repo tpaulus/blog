@@ -1,0 +1,6 @@
+baseURL = "https://dev.blog.tompaulus.com/"
+title = "Tom's Journal (Drafts)"
+buildDrafts = true
+
+[params]
+  noindex = true

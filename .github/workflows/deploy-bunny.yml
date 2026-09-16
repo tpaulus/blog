@@ -67,8 +67,21 @@ jobs:
           if-no-files-found: error
           retention-days: 1
 
-  deploy:
-    name: Deploy to Bunny
+      - name: Build development site with drafts
+        env:
+          UNSPLASH_ACCESS_KEY: ${{ secrets.UNSPLASH_ACCESS_KEY }}
+        run: npm run build:development
+
+      - name: Upload development build
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
+        with:
+          name: development-site
+          path: public-development
+          if-no-files-found: error
+          retention-days: 1
+
+  deploy-production:
+    name: Deploy production to Bunny
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     needs: validate
     runs-on: ubuntu-latest
@@ -102,3 +115,39 @@ jobs:
           BUNNY_DEPLOY_PREFIX: ${{ secrets.BUNNY_DEPLOY_PREFIX }}
           BUNNY_DEPLOY_CONCURRENCY: ${{ secrets.BUNNY_DEPLOY_CONCURRENCY }}
         run: npm run deploy -- --skip-build --source public
+
+  deploy-development:
+    name: Deploy development to Bunny
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    needs: validate
+    runs-on: ubuntu-latest
+    environment: development
+    concurrency:
+      group: bunny-development
+      cancel-in-progress: false
+
+    steps:
+      - name: Check out source
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+
+      - name: Set up Node.js
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7
+        with:
+          node-version: 22
+
+      - name: Download validated development build
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8
+        with:
+          name: development-site
+          path: public-development
+
+      - name: Upload site and purge cache
+        env:
+          BUNNY_STORAGE_ZONE: ${{ secrets.BUNNY_STORAGE_ZONE }}
+          BUNNY_STORAGE_PASSWORD: ${{ secrets.BUNNY_STORAGE_PASSWORD }}
+          BUNNY_STORAGE_ENDPOINT: ${{ secrets.BUNNY_STORAGE_ENDPOINT }}
+          BUNNY_PULL_ZONE_ID: ${{ secrets.BUNNY_PULL_ZONE_ID }}
+          BUNNY_API_KEY: ${{ secrets.BUNNY_API_KEY }}
+          BUNNY_DEPLOY_PREFIX: ${{ secrets.BUNNY_DEPLOY_PREFIX }}
+          BUNNY_DEPLOY_CONCURRENCY: ${{ secrets.BUNNY_DEPLOY_CONCURRENCY }}
+        run: npm run deploy -- --skip-build --source public-development
