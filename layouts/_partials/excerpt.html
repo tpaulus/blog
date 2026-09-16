@@ -5,10 +5,10 @@
   summary.
 */}}
 {{ $page := . }}
-{{ $text := $page.Params.description | default $page.Summary | plainify }}
+{{ $text := $page.Params.description | default $page.Summary | plainify | htmlUnescape }}
 {{ $words := split (trim $text " \n\t") " " }}
 {{ if gt (len $words) 33 }}
-{{- (delimit (first 33 $words) " ") }} &hellip;
+{{- delimit (first 33 $words) " " }}&hellip;
 {{- else -}}
 {{ delimit $words " " }}
 {{- end }}
