@@ -36,7 +36,7 @@
     <div class="gh-canvas">
         <header class="post-header">
             <h2 class="post-title">
-                <a class="post-title-link" href="{{ $page.RelPermalink }}">{{ $page.Title }}</a>
+                <a class="post-title-link" href="{{ $page.RelPermalink }}">{{ partial "display-post-title.html" $page }}</a>
             </h2>
             {{ partial "post-meta.html" $page }}
         </header>

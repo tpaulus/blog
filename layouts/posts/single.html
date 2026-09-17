@@ -6,7 +6,7 @@
 
         <header class="article-header gh-canvas">
             {{ partial "post-meta.html" . }}
-            <h1 class="post-title">{{ .Title }}</h1>
+            <h1 class="post-title">{{ partial "display-post-title.html" . }}</h1>
             {{ partial "feature-image.html" . }}
         </header>
 

@@ -20,6 +20,7 @@ npm run dev
 ```
 
 Hugo serves drafts locally and reloads when content, templates, or assets change.
+Draft post titles are prefixed with `DRAFT:`, matching the development site.
 
 ## Write a new blog post
 

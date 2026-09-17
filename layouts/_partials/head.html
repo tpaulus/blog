@@ -4,7 +4,7 @@
 {{- else if eq .Kind "term" -}}
   {{- $title = printf "%s: %s | %s" (.Data.Singular | humanize | title) .Title .Site.Title -}}
 {{- else -}}
-  {{- $title = printf "%s | %s" .Title .Site.Title -}}
+  {{- $title = printf "%s | %s" (partial "display-post-title.html" . | strings.TrimSpace) .Site.Title -}}
 {{- end -}}
 <title>{{ $title }}</title>
 

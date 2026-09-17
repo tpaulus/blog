@@ -48,7 +48,7 @@
 
             <header class="post-header">
                 <h2 class="post-title">
-                    <a class="post-title-link" href="{{ .RelPermalink }}">{{ .Title }}</a>
+                    <a class="post-title-link" href="{{ .RelPermalink }}">{{ partial "display-post-title.html" . }}</a>
                 </h2>
                 <time class="post-meta" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "02 Jan 2006" }}</time>
             </header>
