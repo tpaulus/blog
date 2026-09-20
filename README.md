@@ -19,8 +19,9 @@ npm ci
 npm run dev
 ```
 
-Hugo serves drafts locally and reloads when content, templates, or assets change.
-Draft post titles are prefixed with `DRAFT:`, matching the development site.
+Hugo serves drafts and future-dated posts locally and reloads when content,
+templates, or assets change. Draft post titles are prefixed with `DRAFT:`,
+matching the development site.
 
 ## Write a new blog post
 
@@ -45,7 +46,9 @@ draft: true
 ```
 
 Do not add `author` or `authors` metadata. Add tags, a description, and other
-post-specific metadata only when needed.
+post-specific metadata only when needed. Non-draft posts must use a valid
+`date` (or `publishDate`) that is not in the future; mark scheduled posts as
+`draft: true` until their publication timestamp arrives.
 
 Keep every image used by a post inside that post's bundle, normally under
 `media/`. Reference it with a bundle-relative path; remote image URLs are not

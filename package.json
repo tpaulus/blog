@@ -8,7 +8,7 @@
   },
   "scripts": {
     "fetch:feature-images": "node scripts/fetch-feature-images.mjs",
-    "dev": "npm run fetch:feature-images && hugo server --buildDrafts",
+    "dev": "npm run fetch:feature-images && hugo server --config hugo.toml,hugo.development.toml",
     "lint": "npm run fetch:feature-images && node scripts/lint-local-images.mjs",
     "build:hugo": "npm run fetch:feature-images && hugo --minify --panicOnWarning --cleanDestinationDir",
     "build:hugo:development": "npm run fetch:feature-images && hugo --config hugo.toml,hugo.development.toml --minify --panicOnWarning --cleanDestinationDir --destination public-development",

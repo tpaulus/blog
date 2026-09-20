@@ -109,7 +109,32 @@ function frontMatter(source, file) {
   return parsed;
 }
 
-export function lintContent({ root = process.cwd(), contentDirectory = path.join(root, 'content') } = {}) {
+function publicationDate(metadata) {
+  return metadata.publishDate ?? metadata.date;
+}
+
+function validatePublicationDate(metadata, location, now) {
+  if (metadata.draft === true) return;
+
+  const value = publicationDate(metadata);
+  if (value === undefined || value === null || value === '') {
+    fail(`${location} is not a draft and must have a publication date`);
+  }
+
+  const date = value instanceof Date ? value : new Date(String(value));
+  if (Number.isNaN(date.getTime())) {
+    fail(`${location} has an invalid publication date: ${value}`);
+  }
+  if (date > now) {
+    fail(`${location} has a future publication date; mark it as a draft until it is ready to publish`);
+  }
+}
+
+export function lintContent({
+  root = process.cwd(),
+  contentDirectory = path.join(root, 'content'),
+  now = new Date(),
+} = {}) {
   if (fs.existsSync(path.join(contentDirectory, 'site-assets'))) {
     fail(`${path.relative(root, contentDirectory) || 'content'}/site-assets must not exist; global assets belong in static/site-assets`);
   }
@@ -120,6 +145,9 @@ export function lintContent({ root = process.cwd(), contentDirectory = path.join
 
     const location = path.relative(root, file);
     const bundle = path.dirname(file);
+    if (path.relative(contentDirectory, file).split(path.sep)[0] === 'posts') {
+      validatePublicationDate(metadata, location, now);
+    }
     const htmlLines = rawHtmlLines(source);
     if (htmlLines.length) {
       fail(`${location} contains raw HTML on line(s) ${htmlLines.join(', ')}; use Markdown or a Hugo shortcode instead`);
@@ -179,7 +207,11 @@ export function lintPublic({ root = process.cwd(), publicDirectory = path.join(r
 
 export function lintLocalImages(options = {}) {
   const root = path.resolve(options.root ?? process.cwd());
-  const bundles = lintContent({ root, contentDirectory: options.contentDirectory ?? path.join(root, 'content') });
+  const bundles = lintContent({
+    root,
+    contentDirectory: options.contentDirectory ?? path.join(root, 'content'),
+    now: options.now,
+  });
   const pages = lintPublic({ root, publicDirectory: options.publicDirectory ?? path.join(root, 'public') });
   return { bundles, pages };
 }

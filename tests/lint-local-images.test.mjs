@@ -10,10 +10,13 @@ function fixtureDirectory() {
   return directory;
 }
 
-function writeBundle(root, source, media = true) {
+function writeBundle(root, source, media = true, addDefaultDate = true) {
   const bundle = path.join(root, 'content', 'posts', 'example');
   fs.mkdirSync(bundle, { recursive: true });
-  fs.writeFileSync(path.join(bundle, 'index.md'), source);
+  const content = addDefaultDate && !/^(?:date|publishDate):/m.test(source)
+    ? source.replace(/^---\n/, '---\ndate: 2020-01-01T00:00:00.000Z\n')
+    : source;
+  fs.writeFileSync(path.join(bundle, 'index.md'), content);
   if (media) {
     fs.mkdirSync(path.join(bundle, 'media'), { recursive: true });
     fs.writeFileSync(path.join(bundle, 'media', 'image.png'), 'image');
@@ -25,6 +28,30 @@ test('local image lint accepts bundle media and ordinary external links', (t) =>
   t.after(() => fs.rmSync(root, { recursive: true, force: true }));
   writeBundle(root, '---\ntitle: Example\nfeature_image: media/image.png\n---\n\n![image](media/image.png)\n\n[link](https://example.test)\n');
   assert.deepEqual(lintLocalImages({ root }), { bundles: 1, pages: 0 });
+});
+
+test('local image lint requires non-draft posts to have a current publication date', (t) => {
+  const root = fixtureDirectory();
+  const now = new Date('2026-09-19T19:27:43.503-07:00');
+  t.after(() => fs.rmSync(root, { recursive: true, force: true }));
+
+  writeBundle(root, '---\ntitle: Example\n---\n', true, false);
+  assert.throws(() => lintLocalImages({ root, now }), /must have a publication date/);
+
+  writeBundle(root, '---\ntitle: Example\ndate: not-a-date\n---\n');
+  assert.throws(() => lintLocalImages({ root, now }), /invalid publication date/);
+
+  writeBundle(root, '---\ntitle: Example\npublishDate: 2026-09-21T00:00:00.000Z\n---\n');
+  assert.throws(() => lintLocalImages({ root, now }), /future publication date/);
+});
+
+test('local image lint permits future publication dates on drafts', (t) => {
+  const root = fixtureDirectory();
+  const now = new Date('2026-09-19T19:27:43.503-07:00');
+  t.after(() => fs.rmSync(root, { recursive: true, force: true }));
+  writeBundle(root, '---\ntitle: Example\ndate: 2026-09-21T00:00:00.000Z\ndraft: true\n---\n');
+
+  assert.doesNotThrow(() => lintLocalImages({ root, now }));
 });
 
 test('local image lint rejects external image URLs in content and front matter', (t) => {
@@ -46,7 +73,7 @@ test('local image lint rejects raw HTML outside code fences', (t) => {
   t.after(() => fs.rmSync(root, { recursive: true, force: true }));
   writeBundle(root, '---\ntitle: Example\n---\n\n<iframe src="https://example.test"></iframe>\n');
   assert.throws(() => lintLocalImages({ root }), /contains raw HTML/);
-  fs.writeFileSync(path.join(root, 'content', 'posts', 'example', 'index.md'), '---\ntitle: Example\n---\n\n```json\n"<div>not HTML content</div>"\n```\n');
+  fs.writeFileSync(path.join(root, 'content', 'posts', 'example', 'index.md'), '---\ntitle: Example\ndate: 2020-01-01T00:00:00.000Z\n---\n\n```json\n"<div>not HTML content</div>"\n```\n');
   assert.doesNotThrow(() => lintLocalImages({ root }));
 });
 
