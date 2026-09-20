@@ -17,10 +17,14 @@
     "build": "npm run build:hugo && node scripts/lint-local-images.mjs && npm run build:search",
     "build:development": "npm run build:hugo:development && PUBLIC_DIRECTORY=public-development node scripts/lint-local-images.mjs && npm run build:search:development",
     "test": "node --test && npm run build",
-    "deploy": "node scripts/deploy-bunny.mjs"
+    "deploy": "node scripts/deploy-bunny.mjs",
+    "prepare": "husky"
   },
   "dependencies": {
     "pagefind": "1.5.2",
     "yaml": "2.9.1"
+  },
+  "devDependencies": {
+    "husky": "^9.1.7"
   }
 }

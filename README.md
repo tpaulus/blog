@@ -13,6 +13,9 @@ Install JavaScript dependencies:
 npm ci
 ```
 
+Dependency installation configures the repository's pre-commit hook, which runs
+`npm run lint` before each commit.
+
 ## Local development
 
 ```bash
