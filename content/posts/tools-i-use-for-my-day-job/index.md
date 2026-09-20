@@ -3,7 +3,8 @@ title: Tools I Use For My Day Job
 slug: tools-i-use-for-my-day-job
 date: 2026-06-15T15:58:34.000Z
 lastmod: 2026-06-21T21:37:09.000Z
-tag: []
+tag:
+  - software
 feature_image: https://unsplash.com/photos/a-rusted-metal-object-sitting-on-top-of-a-table-V0vuuVE8Gcw
 layout: custom-narrow-feature-image
 ---
