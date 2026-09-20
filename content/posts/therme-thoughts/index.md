@@ -2,8 +2,6 @@
 title: Spa·re thoughts from the Black Forest
 slug: therme-thoughts
 date: 2026-09-20T00:00:00.000Z
-lastmod: 2026-09-20T00:00:00.000Z
-draft: true
 tag:
   - Life
 feature_image: https://unsplash.com/photos/a-fountain-in-a-pond-Z9jkZ-sR4GU
